@@ -1,0 +1,65 @@
+{
+  "_project": {
+    "dev": true,
+    "port": 7500,
+    "seo": {
+      "lang": "en",
+      "keywords": "key, words",
+      "title": "Page title",
+      "site_name": "Site name",
+      "description": "Site description",
+      "url": "http://site.com",
+      "image": "/img/img.jpg",
+      "type": "website",
+      "twitter": {
+        "card": "summary",
+        "site": "@romelperez07",
+        "creator": "@romelperez07"
+      }
+    }
+  },
+  "name": "car-seller",
+  "version": "1.0.0",
+  "main": "bin/server.js",
+  "scripts": {
+    "start": "node bin/server.js",
+    "test": "mocha test"
+  },
+  "dependencies": {
+    "babel-core": "^6.9.1",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.5.0",
+    "body-parser": "^1.15.1",
+    "express": "^4.14.0",
+    "extend": "^3.0.0",
+    "history": "^3.0.0",
+    "nunjucks": "^2.4.2",
+    "prhone-log": "^2.2.2",
+    "prhone-mdb": "^1.0.1",
+    "react": "^15.1.0",
+    "react-dom": "^15.1.0",
+    "react-router": "^2.4.1",
+    "require-dir": "^0.3.0",
+    "validator": "^5.5.0",
+    "vulcanval": "^2.0.3"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "jquery": "^3.1.0",
+    "karma": "^1.1.2",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^1.1.1",
+    "karma-mocha-reporter": "^2.1.0",
+    "karma-phantomjs-launcher": "^1.0.1",
+    "mocha": "^3.0.0",
+    "webpack": "^1.13.1"
+  },
+  "author": "Romel Pérez (romelperez.com)",
+  "license": "MIT",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romelperez/react-examples.git"
+  }
+}
