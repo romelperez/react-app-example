@@ -1,0 +1,31 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title><%= title %> | CarSeller StyleGuide</title>
+    <link rel="stylesheet" href="./css/core.css">
+    <link rel="stylesheet" href="./prism.css">
+    <link rel="stylesheet" href="./design.css">
+  </head>
+  <body>
+    <main>
+      <nav>
+        <ul>
+        <% @categories.each do |category, file_name| %>
+          <li><a href="<%= file_name %>"><%= category %></a></li>
+        <% end %>
+        </ul>
+      </nav>
+
+      <header>
+        <h1>CarSeller StyleGuide | <%= title %></h1>
+      </header>
+
+      <section class="content">
+        <ul>
+        <% @blocks.each do |b| %>
+          <li><a href="#<%= b[:name] %>"><%= b[:title] %></a></li>
+        <% end %>
+        </ul>
