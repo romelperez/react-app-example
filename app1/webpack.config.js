@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const webpackBase = require('./webpack.base.js');
 const pkg = require('./package.json');
 
 const project = pkg.project;
@@ -20,7 +21,7 @@ if (!dev) {
   );
 }
 
-module.exports = {
+module.exports = Object.assign({}, webpackBase, {
   entry: {
     core: [
       'babel-polyfill',
@@ -32,28 +33,6 @@ module.exports = {
     path: './dist/js/',
     filename: '[name].js'
   },
-  resolve: {
-    root: path.resolve(__dirname),
-    alias: {
-      tools: 'src/js/tools',
-      i18n: 'src/js/i18n',
-      components: 'src/js/components',
-      settings: 'src/js/settings.js',
-    },
-    extensions: ['', '.js', '.jsx']
-  },
-  module: {
-    loaders: [
-      {
-        test: /\.jsx?$/,
-        exclude: /(node_modules|bower_components)/,
-        loader: 'babel',
-        query: {
-          presets: ['react', 'es2015']
-        }
-      }
-    ]
-  },
   devtool: dev ? '#inline-source-map' : undefined,
   plugins
-};
+});
