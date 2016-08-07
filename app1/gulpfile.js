@@ -1,3 +1,7 @@
+const del =           require('del');
+const autoprefixer =  require('autoprefixer');
+const cssnano =       require('cssnano');
+const sassdoc =       require('sassdoc');
 const gulp =          require('gulp');
 const sass =          require('gulp-sass');
 const rename =        require('gulp-rename');
@@ -5,20 +9,24 @@ const gif =           require('gulp-if');
 const livereload =    require('gulp-livereload');
 const sourcemaps =    require('gulp-sourcemaps');
 const postcss =       require('gulp-postcss');
-const autoprefixer =  require('autoprefixer');
-const cssnano =       require('cssnano');
+const jsdoc =         require('gulp-jsdoc3');
 const pkg =           require('./package.json');
 
-const project = pkg._project;
-const dev = process.env.NODE_ENV ? process.env.NODE_ENV !== 'production' : project.dev;
+const project = pkg.project;
+const dev = process.env.NODE_ENV !== 'production';
+const sassFiles = [
+  './src/scss/**/*.scss'
+];
+
+//
+// SASS
+//
+
 const postcssList = [
   autoprefixer({browsers: [
     'last 5 version',
     '> 5%'
   ]})
-];
-const sassFiles = [
-  './src/scss/**/*.scss'
 ];
 
 if (!dev) {
@@ -26,11 +34,15 @@ if (!dev) {
 }
 
 gulp.task('sass', function () {
-  return gulp.src(sassFiles).
+  return gulp.
+    src(sassFiles).
     pipe(sourcemaps.init()).
     pipe(
       sass({
-        includePaths: [],
+        includePaths: [
+          './node_modules/foundation-sites/scss',
+          './node_modules/motion-ui/src'
+        ],
         outputStyle: dev ? 'nested' : 'compressed',
         sourceMap: dev,
         sourceComments: dev,
@@ -38,7 +50,7 @@ gulp.task('sass', function () {
       }).
       on('error', sass.logError)
     ).
-    pipe(sourcemaps.write()).
+    pipe(sourcemaps.write(undefined, { sourceRoot: null })).
     pipe(
       postcss(postcssList)
     ).
@@ -53,6 +65,61 @@ gulp.task('sass', function () {
     );
 });
 
+//
+// SASSDOC
+//
+
+gulp.task('docs-sass-clean', function () {
+  return del(['./docs/sass']);
+});
+
+gulp.task('docs-sass', ['docs-sass-clean'], function () {
+  return gulp.
+    src('./src/scss/**/*.scss').
+    pipe(
+      sassdoc({
+        package: './package.json',
+        dest: './docs/sass',
+        display: {
+          access: ['public']
+        }
+      })
+    );
+});
+
+//
+// JSDOC
+//
+
+gulp.task('docs-js-clean', function () {
+  return del(['./docs/js']);
+});
+
+gulp.task('docs-js', ['docs-js-clean'], function (callback) {
+  const config = {
+    opts: {
+      destination: './docs/js'
+    },
+    plugins: [
+      'plugins/markdown'
+    ],
+    template: './node_modules/ink-docstrap/template',
+    templates: {
+      systemName: pkg.name,
+      footer: `<div style="text-align:center;"><b>${pkg.name}</b></div>`,
+      theme: 'cosmo',
+      syntaxTheme: 'default'
+    }
+  };
+  gulp.
+    src(['./src/js/**/*.js'], { read: false }).
+    pipe(jsdoc(config, callback));
+});
+
+//
+// WATCH
+//
+
 gulp.task('watch', function () {
   if (dev) {
     livereload.listen();
@@ -60,5 +127,5 @@ gulp.task('watch', function () {
   }
 });
 
-gulp.task('build', ['sass']);
-gulp.task('default', ['build', 'watch']);
+gulp.task('docs', ['docs-js', 'docs-sass']);
+gulp.task('default', ['sass', 'watch']);
