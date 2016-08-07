@@ -1,3 +1,7 @@
+##
+## BASE
+##
+
 node_modules
 jspm_packages
 bower_components
@@ -27,3 +31,23 @@ nbproject
 Thumbs.db
 dump.rdb
 npm-debug.log
+
+##
+## PROJECT
+##
+
+## DOCS
+docs/styleguide/*
+!docs/styleguide/.gitkeep
+docs/api/*
+!docs/api/.gitkeep
+docs/js/*
+!docs/js/.gitkeep
+docs/sass/*
+!docs/sass/.gitkeep
+
+## DIST
+dist/css/*
+!dist/css/.gitkeep
+dist/js/*
+!dist/js/.gitkeep
