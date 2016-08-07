@@ -1,10 +1,10 @@
-import chai from 'chai';
-import chaiEnzyme from 'chai-enzyme';
-var jsdom = require('jsdom').jsdom;
+const chai = require('chai');
+const chaiEnzyme = require('chai-enzyme');
+const jsdom = require('jsdom').jsdom;
+
+const exposedProperties = ['window', 'navigator', 'document'];
 
 chai.use(chaiEnzyme());
-
-var exposedProperties = ['window', 'navigator', 'document'];
 
 global.document = jsdom('');
 global.window = document.defaultView;
