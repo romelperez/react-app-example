@@ -2,8 +2,8 @@ const path = require('path');
 const webpack = require('webpack');
 const pkg = require('./package.json');
 
-const project = pkg._project;
-const dev = process.env.NODE_ENV ? process.env.NODE_ENV !== 'production' : project.dev;
+const project = pkg.project;
+const dev = process.env.NODE_ENV !== 'production';
 const plugins = [
   new webpack.DefinePlugin({
     'process.env.NODE_ENV': JSON.stringify(
@@ -22,7 +22,10 @@ if (!dev) {
 
 module.exports = {
   entry: {
-    core: './src/js/core/core.js',
+    core: [
+      'babel-polyfill',
+      './src/js/core/core.js'
+    ],
     index: './src/js/index/index.js',
   },
   output: {
