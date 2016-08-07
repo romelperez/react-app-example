@@ -24,6 +24,7 @@
 
 - [Functional programming](https://en.wikipedia.org/wiki/Functional_programming)
 - [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
+- [FIRST](https://addyosmani.com/first)
 - [CommonJS](http://commonjs.org)
 - [Atomic design](http://atomicdesign.bradfrost.com)
 - [BEM](https://en.bem.info)
