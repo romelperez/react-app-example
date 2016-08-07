@@ -1,6 +1,6 @@
 # Specification
 
-Platform to buy cars.
+Platform to buy cars called **Car Seller**.
 
 - [Company website](./company.md)
 - [CMS](./cms)
