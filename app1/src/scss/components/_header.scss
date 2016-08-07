@@ -1,0 +1,68 @@
+/*doc
+---
+title: Header component
+name: header
+category: basics
+---
+
+This is a super awesome header. Use with caution.
+
+## Second title
+
+Class          | Description
+-------------- | -----------------
+badgeStandard  | This is a basic badge
+badgePrimary   | This is a badge with the trulia orange used on CTAs
+badgeSecondary | This is a badge with the alternate CTA color (Trulia green)
+badgeTertiary  | This is a badge for a warning or something negative
+
+## Another second title
+### Third title
+
+```html_example
+  <header class="header">This is a header</header>
+```
+*/
+.header {
+  margin: 0 0 1rem;
+  background-color: green;
+  color: white;
+}
+
+/*doc
+---
+title: Header 2 component
+name: header2
+category: basics
+---
+
+This is a super awesome header 2. Use with caution.
+
+```html_example
+  <header class="header2">This is a header</header>
+```
+*/
+.header2 {
+  margin: 0 0 1rem;
+  background-color: magenta;
+  color: white;
+}
+
+/*doc
+---
+title: Header 3 component
+name: header3
+category: basics
+---
+
+This is a super awesome header 3. Use with caution.
+
+```html_example
+  <header class="header3">This is a header</header>
+```
+*/
+.header3 {
+  margin: 0 0 1rem;
+  background-color: black;
+  color: white;
+}

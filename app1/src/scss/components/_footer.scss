@@ -1,0 +1,23 @@
+/*doc
+---
+title: Footer component
+name: footer
+category: complex
+---
+
+This is a super awesome footer. Use with caution.
+
+```html_example
+  <footer class="footer">This is a footer</footer>
+```
+*/
+.footer {
+  margin: 0 0 1rem;
+  background-color: blue;
+  color: white;
+}
+
+/// something here
+/// @group general-asset
+/// @type color
+$something: #94a;
