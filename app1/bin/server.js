@@ -41,7 +41,7 @@ Object.keys(urls).forEach(name => {
 
 app.use(express.static(__dirname.replace('/bin', '') + '/dist'));
 if (dev) {
-  app.use(express.static(__dirname.replace('/bin', '') + '/docs'));
+  app.use('/docs', express.static(__dirname.replace('/bin', '') + '/docs'));
 }
 
 app.use((req, res) => res.status(404).render('404.html'));
