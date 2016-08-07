@@ -1,6 +1,5 @@
 {
-  "_project": {
-    "dev": true,
+  "project": {
     "port": 7500,
     "seo": {
       "lang": "en",
@@ -20,10 +19,27 @@
   },
   "name": "car-seller",
   "version": "1.0.0",
+  "author": "Romel Pérez (romelperez.com)",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/romelperez/react-examples.git"
+  },
   "main": "bin/server.js",
   "scripts": {
     "start": "node bin/server.js",
-    "test": "mocha test"
+    "start:tunnel": "ENABLE_TUNNEL=true npm run build && npm run start",
+    "start:production": "NODE_ENV=production npm run build && npm run start",
+    "build": "npm run build-sass && npm run build-js",
+    "build:production": "NODE_ENV=production npm run build",
+    "build-sass": "gulp sass",
+    "build-js": "webpack",
+    "test": "mocha test",
+    "docs": "npm run docs-styleguide && npm run docs-sass && npm run docs-api && npm run docs-js",
+    "docs-styleguide": "npm run build-sass && hologram",
+    "docs-sass": "gulp docs-sass",
+    "docs-api": "apidoc -i api/ -o docs/api/",
+    "docs-js": "gulp docs-js"
   },
   "dependencies": {
     "babel-core": "^6.9.1",
@@ -48,13 +64,17 @@
     "autoprefixer": "^6.4.0",
     "chai": "^3.5.0",
     "cssnano": "^3.7.3",
+    "del": "^2.2.1",
+    "foundation-sites": "^6.2.3",
     "gulp": "^3.9.1",
     "gulp-if": "^2.0.1",
+    "gulp-jsdoc3": "^0.3.0",
     "gulp-livereload": "^3.8.1",
     "gulp-postcss": "^6.1.1",
     "gulp-rename": "^1.2.2",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "ink-docstrap": "^1.2.1",
     "jquery": "^3.1.0",
     "karma": "^1.1.2",
     "karma-chai": "^0.1.0",
@@ -62,13 +82,9 @@
     "karma-mocha-reporter": "^2.1.0",
     "karma-phantomjs-launcher": "^1.0.1",
     "mocha": "^3.0.0",
+    "motion-ui": "^1.2.2",
+    "ngrok": "^2.2.2",
+    "sassdoc": "^2.1.20",
     "webpack": "^1.13.1"
-  },
-  "author": "Romel Pérez (romelperez.com)",
-  "license": "MIT",
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/romelperez/react-examples.git"
   }
 }
