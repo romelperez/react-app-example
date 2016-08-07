@@ -61,13 +61,15 @@ We use [npm scripts](https://docs.npmjs.com/misc/scripts) as API to our project.
 - `node_modules/` - Server and universal modules
 - `bower_components/` - Client libraries
 - `package.json` - Server conf
-- `karma.conf.js` - Karma conf
-- `webpack.config.js` - WebPack conf
-- `hologram_config.yml` - Hologram conf
 - `bower.json` - Bower conf
 - `gulpfile.js` - Gulp conf
+- `webpack.base.js` - WebPack base conf
+- `webpack.config.js` - WebPack conf
+- `karma.conf.js` - Karma conf
+- `hologram_config.yml` - Hologram conf
 - `.editorconfig` - Editor conf
 - `.jshintrc` - JSHint conf
+- `.babelrc` - Babel conf
 - `.gitignore`
 - `.gitattributes`
 
@@ -85,10 +87,11 @@ The client source will be used to generate distribution files without nested fol
 
 - `docs/` - Documentation
   - `spec/` - Specification
-  - `design/` - Architecture and design
+  - `architecture/` - Architecture and design
   - `styleguide/` - Style design system
-  - `client/` - Client API docs
-  - `server/` - Server API docs
+  - `sass/` - SASS docs
+  - `js/` - Universal API docs
+  - `api/` - Server API docs
   - *`user/` - User documentation*
 - `tasks/` - Automated tasks conf
 - `bin/` - Executables
@@ -101,7 +104,7 @@ The client source will be used to generate distribution files without nested fol
 - *`lib/` - Client static libraries*
   - *`js/`*
   - *`css/`*
-- `src/` - Universal source code
+- `src/` - Source code (universal, client and server)
   - `js/`
     - *`tools/` - General tools*
     - *`i18n/` - Internationalization*
