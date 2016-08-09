@@ -11,6 +11,7 @@ const sourcemaps =    require('gulp-sourcemaps');
 const postcss =       require('gulp-postcss');
 const jsdoc =         require('gulp-jsdoc3');
 const pkg =           require('./package.json');
+const log =           require('./api/log');
 
 const project = pkg.project;
 const dev = process.env.NODE_ENV !== 'production';

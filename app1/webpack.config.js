@@ -2,6 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackBase = require('./webpack.base.js');
 const pkg = require('./package.json');
+const log = require('./api/log');
 
 const project = pkg.project;
 const dev = process.env.NODE_ENV !== 'production';
