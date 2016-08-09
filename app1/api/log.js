@@ -21,4 +21,8 @@ const log = new Log('CarSeller', {
   displayNamespace: false
 });
 
+const NODE_ENV = process.env.NODE_ENV ? process.env.NODE_ENV : 'development';
+
+log.info(`Running on "${NODE_ENV}" mode`);
+
 module.exports = log;
