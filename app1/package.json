@@ -28,10 +28,10 @@
   "main": "bin/server.js",
   "scripts": {
     "start": "node bin/server.js",
-    "start:tunnel": "ENABLE_TUNNEL=true npm run build && npm run start",
-    "start:production": "NODE_ENV=production npm run build && npm run start",
+    "start:tunnel": "npm run build && ENABLE_TUNNEL=true npm run start",
+    "start:production": "npm run build:production && NODE_ENV=production npm run start",
     "build": "npm run build-sass && npm run build-js",
-    "build:production": "NODE_ENV=production npm run build",
+    "build:production": "NODE_ENV=production npm run build-sass && NODE_ENV=production npm run build-js",
     "build-sass": "gulp sass",
     "build-js": "webpack",
     "test": "npm run test-api && npm run test-universal && npm run test-karma",

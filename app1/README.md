@@ -59,6 +59,12 @@ Build all source code.
 npm run build
 ```
 
+Build for production environment:
+
+```bash
+npm run build:production
+```
+
 ### Tests
 
 Run all tests with Karma watcher.
