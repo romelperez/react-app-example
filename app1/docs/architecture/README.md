@@ -1,4 +1,93 @@
-# Project Architecture
+# Project Software Design and Architecture
+
+----
+
+## Budget
+
+- Support
+  - Browsers with at least HTML5, ES5 and CSS2.1
+  - Internet Explorer from version 10
+  - Mobile devices with minimum viewport of 320 pixels
+- Accessibility
+  - All public facing content should be SEO friendly
+  - All public facing content should be crawlable at page load
+- Performance
+  - Public pages should weight less than 3MB on initial load
+  - Public pages should load first content in less than 2 seconds through _Regular 4G_ connection, applications can take longer
+  - Optimize and minimize assets
+  - Enable compression and cache for eligible resources types
+  - Data endpoints should disable cache
+  - Use CDNs for resources when available
+- Security
+  - HTTPS enabled
+- Most components and modules should be tested
+- Most APIs should be documented
+- Should be scalable
+
+----
+
+## Methodologies
+
+- [Unix philosophy](https://en.wikipedia.org/wiki/Unix_philosophy)
+- [Functional programming](https://en.wikipedia.org/wiki/Functional_programming)
+- [Behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development)
+- [Udacity Git Styleguide](http://udacity.github.io/git-styleguide)
+- [FIRST](https://addyosmani.com/first)
+- [CommonJS](http://commonjs.org)
+- [Atomic design](http://atomicdesign.bradfrost.com)
+- [BEM](https://en.bem.info)
+- [Mobile First](http://zurb.com/word/mobile-first)
+- [JS Style Guide](https://github.com/airbnb/javascript)
+- [CSS/SASS Style Guide](https://github.com/airbnb/css)
+
+### General rules and conventions
+
+- Codification UTF-8
+- 2 space indentation
+- File names, lowercase, words split by dashes
+- No more than 80 characters per line of code
+- Modules should not be more than around 100 lines of code (without docs)
+- Modules dependencies must be placed at the beginning
+- Modules exports should be defined at the end (when eligible)
+- npm packages over bower components or ruby gems
+- CSS animations/transitions over JS animations
+- Font icons over CSS image sprites
+
+### Design
+
+- **General**:
+  - Use `box-sizing` with `border-box`.
+  - Use `rem` for font sizes. Pixels for everything else.
+- **Layouts**:
+  - A layout is only concerned with its children horizontal or vertical alignment and spacing. Layouts can have only margin bottom.
+- **Components**:
+  - A component never imposes element styles on its children.
+  - Component styles only target the elements inside.
+  - The component itself never has floats or margins. It should not have background nor width/height.
+- **Elements**:
+  - Every element has a single, unique, component-scoped class. All styles are applied directly to that selector, modified only by contexts and themes.
+  - Themes and other data attributes never force changes in appearance; they are always a context that layouts, components, and elements can subscribe to.
+  - No element will have top or left margins, they could have right or bottom margins and all last children will have their margins cleared. The first element touches the top of its component.
+
+_Some rules from [Frontend Architecture for design systems](http://shop.oreilly.com/product/0636920040156.do)._
+
+### JavaScript
+
+- Variables and function names, camel case, avoid single letters
+
+----
+
+## Project workflow
+
+- Iteration
+  - Requirements and specifications
+  - Architecture and software design
+  - Chores: environment and tools, file structure, automated tasks
+  - Iteration
+    - User interface design
+    - Components and functionalities
+    - Testing
+    - Documentation
 
 ----
 
@@ -14,7 +103,7 @@
 ### Platforms
 
 - [Node](http://nodejs.org) v4+
-- Ever green browsers and IE11
+- Ever green browsers
 
 ### Languages
 
@@ -44,61 +133,9 @@
 
 ----
 
-## Methodologies
-
-- [Functional programming](https://en.wikipedia.org/wiki/Functional_programming)
-- [Behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development)
-- [FIRST](https://addyosmani.com/first)
-- [CommonJS](http://commonjs.org)
-- [Atomic design](http://atomicdesign.bradfrost.com)
-- [BEM](https://en.bem.info)
-- [JS Style Guide](https://github.com/airbnb/javascript)
-- [CSS Style Guide](https://github.com/airbnb/css)
-
-### General rules and conventions
-
-- Codification UTF-8
-- 2 space indentation
-- File names, lowercase, words split by dashes
-
-### Design
-
-- **General**:
-  - Use `box-sizing` with `border-box`.
-  - Use `rem` for font sizes. Pixels for everything else.
-- **Layouts**:
-  - A layout is only concerned with its children horizontal or vertical alignment and spacing. Layouts can have only margin bottom.
-- **Components**:
-  - A component never imposes element styles on its children.
-  - Component styles only target the elements inside.
-  - The component itself never has floats or margins. It should not have background nor width/height.
-- **Elements**:
-  - Every element has a single, unique, component-scoped class. All styles are applied directly to that selector, modified only by contexts and themes.
-  - Themes and other data attributes never force changes in appearance; they are always a context that layouts, components, and elements can subscribe to.
-  - No element will have top or left margins, they could have right or bottom margins and all last children will have their margins cleared. The first element touches the top of its component.
-
-Some rules from [Frontend Architecture for design systems](http://shop.oreilly.com/product/0636920040156.do).
-
-### Code
-
-- Variables names, camel case
-- All require modules must be placed at the beginning
-
-----
-
-## Budget
-
-- All public facing content should be crawlable at page load
-- Public pages should weight less than 3MB on initial load
-- Public pages should load first content in less than 2 seconds through _Regular 4G_ connection
-
-----
-
 ## Structure
 
 ### General
-
-We use [npm scripts](https://docs.npmjs.com/misc/scripts) as API to our project.
 
 - `node_modules/` - Server and universal modules
 - `bower_components/` - Client libraries
@@ -150,7 +187,7 @@ The client source will be used to generate distribution files without nested fol
   - `js/`
     - *`tools/` - General tools*
     - *`i18n/` - Internationalization*
-    - *`data/` - Data utils*
+    - *`data/` - Server persistence utils*
     - `components/` - React components
     - `core/` - Core utils
       - `analytics.js`
@@ -188,3 +225,43 @@ The client source will be used to generate distribution files without nested fol
   - `tools/`
   - `components/`
   - `[application]/`
+
+----
+
+## API
+
+We use [npm scripts](https://docs.npmjs.com/misc/scripts) as API to our project.
+
+| Command | Description    |
+| :------ | :------------- |
+| `npm run instart` | Start development server |
+| `npm run start:tunnel` | Start development server with [ngrok](https://ngrok.com) tunnel |
+| `npm run start:production` | Start production server |
+| `npm run build` | Build development assets |
+| `npm run build:production` | Build production assets |
+| `webpack -w` | Start webpack with watcher |
+| `gulp` | Start gulp with watcher |
+| `npm run test` | Run tests |
+| `npm run docs` | Generate documentation |
+
+### System variables
+
+- `NODE_ENV` - Node environment
+  - `development` (default)
+  - `test`
+  - `production`
+- `PORT` - Server port
+- `ENABLE_TUNNEL` - Enable tunnel by [ngrok](https://ngrok.com)
+- `TRAVIS` - Enable [Continuous Integration](https://en.wikipedia.org/wiki/Continuous_integration) (referring [travis-ci](http://travis-ci.org))
+
+### Installation
+
+In `NODE_ENV=development` environment:
+
+```bash
+sudo apt-get install ruby-full
+gem install hologram
+npm install -g bower gulp webpack
+npm install
+bower install
+```
