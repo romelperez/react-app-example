@@ -3,6 +3,7 @@
 Platform to buy cars called **Car Seller**.
 
 - [Company website](./company.md)
+- [Company Terms and Conditions](./terms-and-conditions.md)
 - [CMS](./cms)
   - [Cars](./cms/cars.md)
   - [Brands](./cms/brands.md)

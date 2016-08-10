@@ -3,13 +3,14 @@
 - If user is logged in AND is admin:
   - Should be the company logo with link to default view
   - Should be a menu with links to:
+    - [Purchases view](./purchases.md)
     - [Cars view](./cars.md)
     - [Brands view](./brands.md)
+    - [Information view](./info.md)
     - [Users view](./users.md)
-    - [Purchases view](./purchases.md)
     - [Users Cars](../users/cars.md)
     - [Logout](../users/logout.md)
-  - Should display [Cars view](./cars.md) by default
+  - Should display [Purchases view](./purchases.md) by default
   - Should display current view
     - On click, should reset current view
   - Should display current user

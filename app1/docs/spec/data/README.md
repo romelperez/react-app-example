@@ -7,3 +7,4 @@
   - [User](./user.md)
   - [User role](./user-role.md)
   - [Purchase](./purchase.md)
+  - [Info](./info.md)

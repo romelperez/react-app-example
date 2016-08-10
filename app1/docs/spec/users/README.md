@@ -4,13 +4,19 @@
   - If user is admin:
     - Should display a link to [CMS](../cms/)
   - Should display current user name
-    - On click, **Edit User**
-  - Should display list of all brands of cars.
-    - Each item
-      - Should display: name, picture, number of cars
-      - On click, display **Brand Details**
+    - Should dropdown options:
+      - **Edit User**
+      - [Logout](./logout.md)
+  - Should display view **Brands List** by default
 - If user is not logged in:
   - Redirect to [login](./login.md) with redirect to here.
+
+## Brands List
+
+- Should display list of all brands of cars.
+  - Each item
+    - Should display: name, picture, number of cars
+    - On click, display **Brand Details**
 
 ## Brand Details
 
@@ -31,7 +37,7 @@
 
 - Should allow edit [user data](../data/user.md)
 - Should be links to: **Return**
-- On change, save
+- Should be an option to save
 
 ## Buy
 
