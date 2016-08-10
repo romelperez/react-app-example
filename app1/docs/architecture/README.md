@@ -1,57 +1,98 @@
 # Project Architecture
 
+----
+
 ## Stack
 
 ### Environment tools
 
-- Unix
-- Git
-- Atom
-- Chrome Dev Tools
+- [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
+- [Git](https://git-scm.com)
+- [Atom](http://atom.io)
+- [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools/)
 
 ### Platforms
 
-- Node v4+
+- [Node](http://nodejs.org) v4+
 - Ever green browsers and IE11
 
 ### Languages
 
-- ES2015
-- JSX
-- SASS
+- [ES2015](https://en.wikipedia.org/wiki/ECMAScript)
+- [JSX](https://jsx.github.io)
+- [SASS](http://sass-lang.com)
 
-### Methodologies
+### Tools
+
+- [Express](http://expressjs.com) - Server
+- [React](https://facebook.github.io/react/) - JS view library
+- [Redux](http://redux.js.org) - Predictable state container for JS apps
+- [Immutable](https://facebook.github.io/immutable-js/) - Immutable collections for JS
+- [jQuery](http://jquery.com) - General JS library
+- [Foundation](http://foundation.zurb.com/docs/) - Responsive frontend framework
+- [Material Design Icons](http://materialdesignicons.com) - Icons
+
+### Tasks and automation
+
+- [Gulp](http://gulpjs.com) - Tasks runner
+- [Webpack](http://webpack.github.io/) - JS module manager
+- [Bower](http://bower.io) - Libraries manager
+- [Hologram](http://trulia.github.io/hologram/) - Design system generator
+- [Mocha](http://mochajs.org) - Test runner
+- [Karma](http://karma-runner.github.io) - Testing environment
+- [Enzyme](http://airbnb.io/enzyme) - JS test utility for React
+
+----
+
+## Methodologies
 
 - [Functional programming](https://en.wikipedia.org/wiki/Functional_programming)
-- [Test-driven development](https://en.wikipedia.org/wiki/Test-driven_development)
+- [Behavior-driven development](https://en.wikipedia.org/wiki/Behavior-driven_development)
 - [FIRST](https://addyosmani.com/first)
 - [CommonJS](http://commonjs.org)
 - [Atomic design](http://atomicdesign.bradfrost.com)
 - [BEM](https://en.bem.info)
+- [JS Style Guide](https://github.com/airbnb/javascript)
+- [CSS Style Guide](https://github.com/airbnb/css)
 
-### Tools
+### General rules and conventions
 
-- Express
-- React
-- Redux
-- Immutable
-- jQuery
-
-### Tasks and automation
-
-- Gulp - Tasks runner
-- Webpack - JS module manager
-- Bower - Libraries manager
-- Hologram - Design system generator
-- Karma - Testing environment
-- Mocha - Test runner
-
-### Conventions
-
-- Codification utf-8
+- Codification UTF-8
 - 2 space indentation
+- File names, lowercase, words split by dashes
+
+### Design
+
+- **General**:
+  - Use `box-sizing` with `border-box`.
+  - Use `rem` for font sizes. Pixels for everything else.
+- **Layouts**:
+  - A layout is only concerned with its children horizontal or vertical alignment and spacing. Layouts can have only margin bottom.
+- **Components**:
+  - A component never imposes element styles on its children.
+  - Component styles only target the elements inside.
+  - The component itself never has floats or margins. It should not have background nor width/height.
+- **Elements**:
+  - Every element has a single, unique, component-scoped class. All styles are applied directly to that selector, modified only by contexts and themes.
+  - Themes and other data attributes never force changes in appearance; they are always a context that layouts, components, and elements can subscribe to.
+  - No element will have top or left margins, they could have right or bottom margins and all last children will have their margins cleared. The first element touches the top of its component.
+
+Some rules from [Frontend Architecture for design systems](http://shop.oreilly.com/product/0636920040156.do).
+
+### Code
+
 - Variables names, camel case
-- File names, lowercase, separation by dashes
+- All require modules must be placed at the beginning
+
+----
+
+## Budget
+
+- All public facing content should be crawlable at page load
+- Public pages should weight less than 3MB on initial load
+- Public pages should load first content in less than 2 seconds through _Regular 4G_ connection
+
+----
 
 ## Structure
 
