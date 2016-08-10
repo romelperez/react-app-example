@@ -1,4 +1,3 @@
 # Terms and conditions
 
-- Should display information about the terms and conditions of the website
-- TODO:
+- Should display information about the project terms and conditions
