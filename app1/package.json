@@ -29,7 +29,7 @@
   "scripts": {
     "start": "node bin/server.js",
     "start:tunnel": "npm run build && ENABLE_TUNNEL=true npm run start",
-    "start:production": "npm run build:production && NODE_ENV=production npm run start",
+    "start:production": "npm run build:production && NODE_ENV=production PORT=80 npm run start",
     "build": "npm run build-sass && npm run build-js",
     "build:production": "NODE_ENV=production npm run build-sass && NODE_ENV=production npm run build-js",
     "build-sass": "gulp sass",
