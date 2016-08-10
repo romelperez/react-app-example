@@ -56,7 +56,7 @@ module.exports = function(config) {
 
 
     // enable / disable watching file and executing tests whenever any file changes
-    autoWatch: !isCI,
+    autoWatch: false,
 
 
     // start these browsers
@@ -66,7 +66,7 @@ module.exports = function(config) {
 
     // Continuous Integration mode
     // if true, Karma captures browsers, runs the tests and exits
-    singleRun: isCI,
+    singleRun: true,
 
     // Concurrency level
     // how many browser should be started simultaneous
@@ -79,13 +79,7 @@ module.exports = function(config) {
     },
 
     webpack: Object.assign({}, webpackBase, {
-      devtool: 'inline-source-map',
-      externals: {
-        'cheerio': 'window',
-        'react/addons': true,
-        'react/lib/ExecutionEnvironment': true,
-        'react/lib/ReactContext': true
-      }
+      devtool: 'inline-source-map'
     }),
 
     webpackServer: {
