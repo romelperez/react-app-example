@@ -8,6 +8,7 @@ export default {
   }]
 };
 
+// TODO: Remove these example:
 /**
  * The vulcan validator (vulcanval) creator.
  *
@@ -55,7 +56,6 @@ export default {
  * // Validating the map with the validator.
  * const result = validator.validate(map);
  */
-
 /**
  * Add a custom validator globally.
  *

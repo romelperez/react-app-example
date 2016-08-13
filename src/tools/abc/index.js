@@ -1,1 +1,3 @@
-export { default } from './abc';
+export default function (factor=2) {
+  return 10 * factor;
+}
