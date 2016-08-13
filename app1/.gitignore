@@ -43,8 +43,6 @@ docs/api/*
 !docs/api/.gitkeep
 docs/js/*
 !docs/js/.gitkeep
-docs/sass/*
-!docs/sass/.gitkeep
 
 ## DIST
 dist/css/*
