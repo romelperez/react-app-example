@@ -1,8 +1,14 @@
-# React examples
+# React app example
 
 [![prhone](https://img.shields.io/badge/prhone-project-00bbbb.svg)](http://romelperez.com)
 
-A series of examples and web applications focused on client side using [react](https://facebook.github.io/react).
+Platform to buy cars.
+
+- [Specification](./docs/spec/)
+- [Software architecture](./docs/architecture/)
+- [Graphical design](./docs/design/)
+
+See architecture details to review how the project is designed and structured.
 
 ## License
 
