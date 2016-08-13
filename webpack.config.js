@@ -26,16 +26,13 @@ if (!dev) {
 
 module.exports = Object.assign({}, webpackBase, {
   entry: {
-    core: [
-      'babel-polyfill',
-      './src/core/core.js'
-    ],
+    core: './src/core/index.js',
     index: './src/index/index.js',
   },
   output: {
     path: './dist/js/',
     filename: '[name].js'
   },
-  devtool: dev ? '#inline-source-map' : undefined,
+  devtool: dev ? 'inline-source-map' : undefined,
   plugins
 });
