@@ -3,14 +3,20 @@ const webpackBase = require('./webpack.base.js');
 
 module.exports = {
 
+  // Docs site title.
   title: 'CarSeller',
 
-  // All files inside `src/components` with ending with `.js` but without the
-  // name `index` or `SOMETHING-test`.
-  components: './src/components/**/!(*-test|index).js',
+  // HTML template.
+  template: './docs/styleguide/template.html',
+
+  // All files inside `src/components` with name `index.js`.
+  components: './src/components/**/index.js',
 
   // Folder to publish the docs.
   styleguideDir: './docs/styleguide',
+
+  // Show the code snippets by default.
+  showCode: true,
 
   // Webpack configuration, which extends the library's with our own.
   updateWebpackConfig (conf, env) {

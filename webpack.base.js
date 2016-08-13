@@ -3,6 +3,7 @@ const path = require('path');
 module.exports = {
   resolve: {
     alias: {
+      src:        path.resolve(__dirname + '/src'),
       tools:      path.resolve(__dirname + '/src/tools'),
       i18n:       path.resolve(__dirname + '/src/i18n'),
       components: path.resolve(__dirname + '/src/components'),
