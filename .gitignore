@@ -38,7 +38,7 @@ npm-debug.log
 
 ## DOCS
 docs/styleguide/*
-!docs/styleguide/.gitkeep
+!docs/styleguide/template.html
 docs/api/*
 !docs/api/.gitkeep
 docs/js/*
