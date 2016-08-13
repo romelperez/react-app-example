@@ -5,7 +5,7 @@
 ## Budget
 
 - Support
-  - Browsers with at least HTML5, ES5 and CSS2.1
+  - Browsers with at least HTML5, CSS2.1 and ECMAScript5
   - Internet Explorer from version 10
   - Mobile devices with minimum viewport of 320 pixels
 - Accessibility
@@ -42,16 +42,20 @@ _These should be determined by business, demography, concurrency, among many oth
 - [JS/React Style Guide](https://github.com/airbnb/javascript)
 - [CSS/SASS Style Guide](https://github.com/airbnb/css)
 
+_Some methodologies apply in certain cases or partly._
+
 ### General rules and conventions
 
 - Codification UTF-8
 - 2 space indentation
 - File names, lowercase, words split by dashes
+- Testing files names should end with `-test`
+- The main file in a component/module should be called `index`
 - No more than 80 characters per line of code
 - Modules should not be more than around 100 lines of code (without docs)
 - Modules dependencies must be placed at the beginning
 - Modules exports should be defined at the end (when eligible)
-- CSS animations/transitions over JS animations (TODO: Review this)
+- CSS animations/transitions over JS animations
 - Font icons over CSS image sprites
 - JavaScript variables and function names, camel case, avoid single letters
 
@@ -65,7 +69,7 @@ _These should be determined by business, demography, concurrency, among many oth
   - Layouts can have margin bottom and margin right to separate.
 - **Components**:
   - A component never imposes element styles on its children. Component styles only target the elements inside.
-  - The component itself never has floats, widths, heights or margins. It should not have background. It can have dimentions min-X or max-X.
+  - The component itself never has floats, widths, heights or margins. It should not have background.
   - There can be components that can behave as elements.
 - **Elements**:
   - Every element has a single, unique, component-scoped class.
@@ -79,11 +83,11 @@ _Some rules from [Frontend Architecture for design systems](http://shop.oreilly.
 
 ## Project workflow
 
-- By Iteration of (not necessarily in this order):
+- By Iteration of _(not necessarily in this order)_:
   - Requirements and specifications
   - Architecture and software design
-  - Chores: environment and tools, file structure, automated tasks
-  - By Iteration of (not necessarily in this order):
+  - Chores: structure, tools and processes automation
+  - By Iteration of _(not necessarily in this order)_:
     - User interface design
     - Components and functionalities
     - Testing
@@ -96,9 +100,13 @@ _Some rules from [Frontend Architecture for design systems](http://shop.oreilly.
 ### Environment tools
 
 - [Unix shell](https://en.wikipedia.org/wiki/Unix_shell)
+  - [oh-my-zsh](https://github.com/robbyrussell/oh-my-zsh)
 - [Git](https://git-scm.com)
 - [Atom](http://atom.io)
-- [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools/)
+  - [editorconfig](https://atom.io/packages/editorconfig)
+  - [linter](https://atom.io/packages/linter) plugin [eslint](https://atom.io/packages/linter-eslint)
+- [Chrome Dev Tools](https://developers.google.com/web/tools/chrome-devtools)
+  - [React Dev Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
 
 ### Platforms
 
@@ -117,11 +125,12 @@ _Some rules from [Frontend Architecture for design systems](http://shop.oreilly.
 - [React](https://facebook.github.io/react/) - JS view library
 - [Redux](http://redux.js.org) - Predictable state container for JS apps
 - [Immutable](https://facebook.github.io/immutable-js/) - Immutable collections for JS
+- [Material UI](http://www.material-ui.com) - Frontend framework
 - [jQuery](http://jquery.com) - General JS library
-- [Foundation](http://foundation.zurb.com/docs/) - Responsive frontend framework
 
 ### Tasks and automation
 
+- [Babel](http://babeljs.io) - ES2015 transpiler to ES5
 - [Gulp](http://gulpjs.com) - Tasks runner
 - [Webpack](http://webpack.github.io/) - JS module manager
 - [React StyleGuide](https://github.com/sapegin/react-styleguidist) - React style guide generator
@@ -142,26 +151,29 @@ _Some rules from [Frontend Architecture for design systems](http://shop.oreilly.
 - `webpack.config.js` - WebPack conf
 - `gulpfile.js` - Gulp conf
 - `styleguide.config.js` - React StyleGuide conf
+- `jsdoc.json` - jsdoc conf
 - `karma.conf.js` - Karma conf
+- `.babelrc` - Babel default conf
 - `.editorconfig` - Editor conf
-- `.jshintrc` - JSHint conf
+- `.eslintrc` - ESLint conf
 - `.gitignore`
 - `.gitattributes`
 
 ### Project
 
-We store the general project configuration at `package.json`.
+We store the general project configuration at `package.json` property `project`.
 
-Separate client and server side code in different locations. If there is code used universally, we place it in the client folder. Also, there are docs, automation tasks, executables, tests, and a client side distribution folder for public access.
+Separate client and server side code in different locations. If there is code used universally, we place it in the `src` folder. Also, there are docs, automation tasks, executables, tests, and a client side distribution folder for public access.
 
-We don't organize the files by isolated client components. We distribute them by category: **functional** `src/js/`, **design** `src/scss/`, **resources** `dist/` and **tests** `test/`. Possible resources source should be in `src/[RESOURCE]/`.
+We isolate the components and modules code (design and functional), tests and docs. But we store resources at distribution folder `dist`, general JS at `src/core` and global styles at `src/scss`.
 
-A page can be static or an SPA. If static, the entire page will be generated in server side with universal components. If SPA, most of the page will be generated by dynamic client JS, but can render from server.
+A page can be static or an SPA. If static, the entire page will be generated in server side with universal components using the application `src/app7/server.js` entry point. If SPA, most of the page will be generated by dynamic client JS `src/app7/index.js`, but can render from server.
 
-The client source will be used to generate distribution files without nested folders. Example: `src/js/app1/app1.js` should generate `dist/js/app1.js`.
+The client source will be used to generate distribution files without nested folders. Example: `src/app7/index.js` should generate `dist/js/app7.js`.
 
 - `docs/` - Documentation
   - `spec/` - Specification
+  - `design/` - UI/UX designs
   - `architecture/` - Software design and architecture
   - `styleguide/` - React components style guide
   - `js/` - Universal API docs
@@ -171,14 +183,12 @@ The client source will be used to generate distribution files without nested fol
 - `bin/` - Executables
   - `server.js` - Server
 - `api/` - Server API
-  - `models/` - Data models
-  - `urls/` - Endpoints
   - `log.js` - Logger
-- `views/` - Server JSX templates
+- `views/` - Server templates
 - *`lib/` - Client static libraries*
   - *`js/`*
   - *`css/`*
-- `src/` - Source code (universal, client and server)
+- `src/` - Source code
   - *`tools/` - General tools*
   - *`i18n/` - Internationalization*
   - *`data/` - Server persistence utils*
@@ -191,7 +201,7 @@ The client source will be used to generate distribution files without nested fol
       - `[application].scss`
     - `_settings.scss`
   - `core/` - Core utils
-    - `core.js`
+    - `index.js`
   - `[application]/` - Application template
     - `containers/` - React container components
     - *`data/`*
@@ -201,22 +211,20 @@ The client source will be used to generate distribution files without nested fol
     - *`routers.js`*
     - *`constants.js`*
     - `render.js`
-    - *`[application]-server.js` - Server page generator*
-    - `[application].js` - Client SPA script
+    - *`server.js` - Server page generator*
+    - `index.js` - Client SPA script
+  - *`[resource]/` - Resource source, such as images or SVGs*
   - `settings.js` - Client side conf
-- `dist/` - Client assets and built client code (the public folder)
-  - `files/` - Dynamic files by users
+- `dist/` - Public assets and built client code
   - `css/`
   - `js/`
-  - `img/`
-  - `fonts/`
-  - `audio/`
-  - `video/`
-- `test/` - Universal tests
-  - `integration/`
-  - `tools/`
-  - `components/`
-  - `[application]/`
+  - *`files/` - Dynamic files by users*
+  - *`img/`*
+  - *`fonts/`*
+  - *`audio/`*
+  - *`video/`*
+- `test/` - Tests
+  - `api/`
 
 ----
 
@@ -227,10 +235,12 @@ We use [npm scripts](https://docs.npmjs.com/misc/scripts) as API to our project.
 ### Installation
 
 ```bash
-$ NODE_ENV=development npm install
+$ git clone git@github.com:romelperez/react-app-example.git
+$ cd react-app-example
+$ npm install
 ```
 
-### Commands
+### Workflow commands
 
 | Command | Description    |
 | :------ | :------------- |
