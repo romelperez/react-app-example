@@ -28,8 +28,8 @@
   "main": "server/index.js",
   "scripts": {
     "start": "NODE_PATH=./src/js/ ./node_modules/.bin/babel-node server",
-    "start:tunnel": "npm run build && ENABLE_TUNNEL=true npm run start",
-    "start:production": "npm run build:production && NODE_ENV=production PORT=80 npm run start",
+    "start:tunnel": "ENABLE_TUNNEL=true npm run start",
+    "start:production": "NODE_ENV=production npm run start",
     "build": "npm run build-css && npm run build-js",
     "build:production": "NODE_ENV=production npm run build-css && NODE_ENV=production npm run build-js",
     "build-css": "./node_modules/.bin/gulp sass",
