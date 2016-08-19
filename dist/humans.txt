@@ -2,7 +2,7 @@
 
 /* SITE */
   Standards: HTML5, CSS3, SASS, ES2015, JSX
-  Components: React, jQuery, Foundation
+  Components: React, Material UI, jQuery, Foundation
   Software: Unix, Git, Atom
 
 /* TEAM */
