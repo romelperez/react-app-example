@@ -2,7 +2,7 @@ const path = require('path');
 const webpack = require('webpack');
 const webpackBase = require('./webpack.base.js');
 const pkg = require('./package.json');
-const log = require('./api/log');
+const log = require('./server/log');
 
 const project = pkg.project;
 const dev = process.env.NODE_ENV !== 'production';
@@ -26,8 +26,9 @@ if (!dev) {
 
 module.exports = Object.assign({}, webpackBase, {
   entry: {
-    core: './src/core/index.js',
-    index: './src/index/index.js',
+    core: './src/js/core/index.js',
+    index: './src/js/static/index/index.js',
+    'terms-and-conditions': './src/js/static/terms-and-conditions/index.js',
   },
   output: {
     path: './dist/js/',

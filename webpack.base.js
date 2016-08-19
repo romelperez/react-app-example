@@ -2,19 +2,13 @@ const path = require('path');
 
 module.exports = {
   resolve: {
-    alias: {
-      src:        path.resolve(__dirname + '/src'),
-      tools:      path.resolve(__dirname + '/src/tools'),
-      i18n:       path.resolve(__dirname + '/src/i18n'),
-      components: path.resolve(__dirname + '/src/components'),
-      settings:   path.resolve(__dirname + '/src/settings.js'),
-    }
+    fallback: path.join(process.cwd(), '/src/js')
   },
   module: {
     loaders: [{
       test: /\.js$/,
-      include: path.resolve(__dirname + '/src'),
-      exclude: /(\/lib\/|node_modules|bower_components)/,
+      include: path.join(process.cwd(), '/src/js'),
+      exclude: /(node_modules|bower_components|static_components)/,
       loader: 'babel',
       query: {
         presets: ['react', 'es2015']
