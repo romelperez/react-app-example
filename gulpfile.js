@@ -8,7 +8,7 @@ const livereload =    require('gulp-livereload');
 const sourcemaps =    require('gulp-sourcemaps');
 const postcss =       require('gulp-postcss');
 const pkg =           require('./package.json');
-const log =           require('./api/log');
+const log =           require('./server/log');
 
 const project = pkg.project;
 const dev = process.env.NODE_ENV !== 'production';
