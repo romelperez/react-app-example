@@ -2,7 +2,7 @@
 const path = require('path');
 const webpackBase = require('./webpack.base.js');
 const pkg = require('./package.json');
-const log = require('./api/log');
+const log = require('./server/log');
 
 const isCI = !!process.env.TRAVIS;
 const webpackConf = Object.assign({}, webpackBase, {
@@ -37,7 +37,8 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'src/**/*-test.js'
+      'dist/js/core.js',
+      'src/js/**/*-test.js'
     ],
 
 
@@ -49,7 +50,7 @@ module.exports = function(config) {
     // preprocess matching files before serving them to the browser
     // available preprocessors: https://npmjs.org/browse/keyword/karma-preprocessor
     preprocessors: {
-      'src/**/*.js': ['webpack', 'sourcemap']
+      'src/js/**/*.js': ['webpack', 'sourcemap']
     },
 
 
