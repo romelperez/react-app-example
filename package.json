@@ -25,7 +25,7 @@
     "type": "git",
     "url": "git+https://github.com/romelperez/react-examples.git"
   },
-  "main": "bin/server.js",
+  "main": "server/index.js",
   "scripts": {
     "start": "NODE_PATH=./src/js/ ./node_modules/.bin/babel-node server",
     "start:tunnel": "npm run build && ENABLE_TUNNEL=true npm run start",
@@ -36,9 +36,10 @@
     "build-css:watch": "./node_modules/.bin/gulp",
     "build-js": "./node_modules/.bin/webpack",
     "build-js:watch": "./node_modules/.bin/webpack -w",
-    "test": "npm run test-universal && npm run test-server",
+    "test": "npm run test-universal && npm run test-server && npm run test-integration",
     "test-universal": "NODE_PATH=./src/js/ NODE_ENV=test ./node_modules/.bin/karma start karma.conf.js",
     "test-server": "NODE_PATH=./src/js/ NODE_ENV=test ./node_modules/.bin/mocha './test/server/setup.js' './server/**/*-test.js'",
+    "test-integration": "NODE_PATH=./src/js/ NODE_ENV=test ./node_modules/.bin/mocha './test/integration/setup.js' './test/integration/**/*-test.js'",
     "docs": "npm run docs-styleguide && npm run docs-js && npm run docs-api",
     "docs-styleguide": "NODE_PATH=./src/js/ ./node_modules/.bin/styleguidist build",
     "docs-js": "./node_modules/.bin/jsdoc -c jsdoc.json -t ./node_modules/ink-docstrap/template -R README.md",
@@ -57,6 +58,7 @@
     "body-parser": "^1.15.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.5.0",
+    "chai-http": "^3.0.0",
     "cssnano": "^3.7.3",
     "enzyme": "^2.4.1",
     "express": "^4.14.0",
