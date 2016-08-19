@@ -4,6 +4,8 @@
 
 Platform to buy cars.
 
+A web application written in universal JavaScript (ES2015), React, SASS, Node and MongoDB.
+
 - [Specification](./docs/spec/)
 - [Software architecture](./docs/architecture/)
 - [Graphical design](./docs/design/)
@@ -15,9 +17,9 @@ See architecture details to review how the project is designed and structured.
 [MIT](./LICENSE)
 
 ```
-_________________
+___________________
 < The MIT License >
------------------
+-------------------
        \   ^__^
         \  (oo)\_______
            (__)\       )\/\
