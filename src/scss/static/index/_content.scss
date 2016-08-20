@@ -1,0 +1,23 @@
+.index-content {
+  display: flex;
+
+  & > .row {
+    flex: 1;
+  }
+  h2 {
+    background-color: rgba(255,255,255,0.6);
+    font-size: 2rem;
+  }
+
+  @include breakpoint (medium) {
+    h2 {
+      font-size: 3rem;
+    }
+  }
+
+  @include breakpoint (large) {
+    h2 {
+      font-size: 4rem;
+    }
+  }
+}

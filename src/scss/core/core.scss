@@ -1,3 +1,5 @@
+// The core module should be used to import all shared styles and components.
+
 @import 'foundation-extend';
 
 @import 'base/main';
@@ -5,3 +7,9 @@
 @import 'base/forms';
 @import 'base/tables';
 @import 'base/media';
+
+@import '../components/main/container';
+@import '../components/main/header';
+@import '../components/main/options';
+@import '../components/main/content';
+@import '../components/main/footer';

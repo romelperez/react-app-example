@@ -1,0 +1,29 @@
+.main-header {
+  padding: 1rem 0;
+  background-color: $primary-color;
+  transition: background-color 300ms;
+  color: #fff;
+
+  a {
+    color: #fff;
+
+    &:hover,
+    &:focus {
+      color: darken(#fff, 5);
+    }
+  }
+
+  @include breakpoint(medium) {
+    .row {
+      .column:last-child {
+        text-align: right;
+      }
+    }
+  }
+
+  // pseudo-selectors
+  &:hover,
+  &:focus {
+    background-color: darken($primary-color, 5);
+  }
+}
