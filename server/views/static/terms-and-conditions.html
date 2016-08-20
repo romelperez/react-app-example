@@ -1,0 +1,15 @@
+{% extends "templates/main.html" %}
+
+{% block headers %}
+<link rel="stylesheet" href="/css/static-terms-and-conditions.css">
+{% endblock %}
+
+{% block content %}
+<div id="app">
+  {{content | safe}}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/js/static-terms-and-conditions.js"></script>
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "templates/main.html" %}
+
+{% block headers %}
+<link rel="stylesheet" href="/css/static-index.css">
+{% endblock %}
+
+{% block content %}
+<div id="app">
+  {{content | safe}}
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script src="/js/static-index.js"></script>
+{% endblock %}
