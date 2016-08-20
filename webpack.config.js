@@ -27,8 +27,8 @@ if (!dev) {
 module.exports = Object.assign({}, webpackBase, {
   entry: {
     core: './src/js/core/index.js',
-    index: './src/js/static/index/index.js',
-    'terms-and-conditions': './src/js/static/terms-and-conditions/index.js',
+    'static-index': './src/js/static/index/index.js',
+    'static-terms-and-conditions': './src/js/static/terms-and-conditions/index.js',
   },
   output: {
     path: './dist/js/',
