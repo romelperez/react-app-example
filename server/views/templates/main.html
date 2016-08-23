@@ -32,6 +32,9 @@
   </head>
   <body>
     {% block content %}
+    <div id="app">
+      {{content | safe}}
+    </div>
     {% endblock %}
 
     <script src="/js/core.js"></script>
