@@ -2,13 +2,6 @@ import i18n from 'i18n';
 import app from 'static/terms-and-conditions/server';
 
 export default {
-  /**
-   * @api {GET} /terms-and-conditions Request Terms and Conditions
-   * @apiName GetTermsAndConditions
-   * @apiGroup General
-   * @apiDescription
-   * Get the project terms and conditions site article in HTML.
-   */
   '/terms-and-conditions': {
     get (req, res, next) {
 
