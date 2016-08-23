@@ -7,7 +7,7 @@ import mergeClasses from 'tools/mergeClasses';
 const Header = function (props) {
 
   const { t, className, children } = props;
-  const title = t('app.title');
+  const title = t('project.title');
   const cls = mergeClasses('main-header', className);
 
   return (

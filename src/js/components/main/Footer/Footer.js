@@ -8,8 +8,8 @@ const Footer = function (props) {
 
   const { t, className, noTermsAndConditions } = props;
   const year = (new Date()).getFullYear();
-  const title = t('app.title');
-  const termsAndConditions = t('app.terms-and-conditions');
+  const title = t('project.title');
+  const termsAndConditions = t('terms-and-conditions.title');
   const cls = mergeClasses('main-footer', className);
   const text = `&copy; ${year} ${title}`;
 

@@ -13,9 +13,9 @@ const App = function (props={}) {
   const i18nInstance = i18n.cloneInstance();
   i18nInstance.changeLanguage(lng);
 
-  const slogan = i18nInstance.t('app.slogan');
-  const login = i18nInstance.t('app.login');
-  const register = i18nInstance.t('app.register');
+  const slogan = i18nInstance.t('index.slogan');
+  const login = i18nInstance.t('login.title');
+  const register = i18nInstance.t('register.title');
   const optionsList = [{
     href: '/register', children: register
   }, {
@@ -30,7 +30,7 @@ const App = function (props={}) {
         </Header>
         <Content className='index-content'>
           <div className='row align-middle'>
-            <div className='column small-6'>
+            <div className='column small-12 medium-6'>
               <h2>{slogan}</h2>
             </div>
           </div>

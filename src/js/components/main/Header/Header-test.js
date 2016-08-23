@@ -27,7 +27,7 @@ describe('Component', function () {
 
       it('Has project title', function () {
         const el = shallowHeader().find('.main-header__title');
-        const expected = i18n.t('app.title');
+        const expected = i18n.t('project.title');
         expect(el).to.contain(expected);
       });
     });
