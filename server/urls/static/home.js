@@ -2,13 +2,6 @@ import i18n from 'i18n';
 import app from 'static/index/server';
 
 export default {
-  /**
-   * @api {GET} / Request Index
-   * @apiName GetIndex
-   * @apiGroup General
-   * @apiDescription
-   * Get the project index site as HTML content for public access.
-   */
   '/': {
     get (req, res, next) {
 
