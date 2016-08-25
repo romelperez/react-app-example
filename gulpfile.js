@@ -7,6 +7,7 @@ const gif =           require('gulp-if');
 const livereload =    require('gulp-livereload');
 const sourcemaps =    require('gulp-sourcemaps');
 const postcss =       require('gulp-postcss');
+const jsdoc =         require('gulp-jsdoc3');
 const pkg =           require('./package.json');
 const log =           require('./server/log');
 
@@ -61,6 +62,53 @@ gulp.task('sass', function () {
     ).
     pipe(
       gif(dev, livereload())
+    );
+});
+
+//
+// JSDOC
+//
+
+gulp.task('jsdoc', function (callback) {
+  const config = {
+    source: {
+      exclude: [
+        'node_modules',
+        'bower_components',
+        'static_components',
+        // Because we document components in the docs/styleguide.
+        'src/js/components',
+        // Because we document the API in the docs/api.
+        'server/api',
+        'server/urls'
+      ]
+    },
+    opts: {
+      destination: './docs/js'
+    },
+    plugins: [
+      'plugins/markdown'
+    ],
+    template: './node_modules/ink-docstrap/template',
+    templates: {
+      systemName: pkg.name,
+      theme: 'cosmo',
+      syntaxTheme: 'default'
+    }
+  };
+  gulp.
+    src(
+      [
+        './README.md',
+        './server/**/*.js',
+        './src/js/**/*.js'
+      ],
+      {
+        read: false
+      }
+    ).
+    pipe(
+      jsdoc(config, callback)
     );
 });
 
