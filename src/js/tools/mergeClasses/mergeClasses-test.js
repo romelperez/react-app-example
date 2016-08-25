@@ -5,6 +5,12 @@ describe('Tools', function () {
 
   describe('mergeClasses', function () {
 
+    it('Should return empty string without parameters', function () {
+      const actual = mergeClasses();
+      const expected = '';
+      expect(actual).to.equal(expected);
+    });
+
     it('Should parse normal classes', function () {
       const actual = mergeClasses('a', 'b-x', 'c');
       const expected = 'a b-x c';
