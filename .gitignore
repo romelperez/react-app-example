@@ -36,6 +36,9 @@ npm-debug.log
 ## PROJECT
 ##
 
+## LOCAL
+local.js
+
 ## DOCS
 docs/styleguide/*
 !docs/styleguide/template.html
