@@ -1,23 +1,4 @@
 {
-  "project": {
-    "domain": "carseller.dev",
-    "port": 7500,
-    "seo": {
-      "lang": "en",
-      "keywords": "key, words",
-      "title": "Page title",
-      "site_name": "Site name",
-      "description": "Site description",
-      "url": "http://site.com",
-      "image": "/img/img.jpg",
-      "type": "website",
-      "twitter": {
-        "card": "summary",
-        "site": "@romelperez07",
-        "creator": "@romelperez07"
-      }
-    }
-  },
   "name": "car-seller",
   "version": "1.0.0",
   "author": "Romel Pérez (romelperez.com)",
@@ -37,9 +18,8 @@
     "build-css:watch": "./node_modules/.bin/gulp",
     "build-js": "./node_modules/.bin/webpack",
     "build-js:watch": "./node_modules/.bin/webpack -w",
-    "test": "npm run test-src && npm run test-server && npm run test-integration",
+    "test": "npm run test-src && npm run test-integration",
     "test-src": "NODE_PATH=./src/js/ NODE_ENV=test ./node_modules/.bin/karma start karma.conf.js",
-    "test-server": "NODE_PATH=./src/js/ NODE_ENV=test ./node_modules/.bin/mocha './test/server/setup.js' './server/**/*-test.js'",
     "test-integration": "NODE_PATH=./src/js/ NODE_ENV=test ./node_modules/.bin/mocha './test/integration/setup.js' './test/integration/**/*-test.js'",
     "docs": "npm run docs-styleguide && npm run docs-js && npm run docs-api",
     "docs-styleguide": "NODE_PATH=./src/js/ ./node_modules/.bin/styleguidist build",
@@ -88,6 +68,8 @@
     "lodash": "^4.15.0",
     "material-ui": "^0.15.4",
     "mocha": "^3.0.0",
+    "mongoose": "^4.5.10",
+    "morgan": "^1.7.0",
     "ngrok": "^2.2.2",
     "nunjucks": "^2.4.2",
     "prhone-log": "^2.2.2",
