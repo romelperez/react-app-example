@@ -4,8 +4,7 @@ export default {
   '/cms': {
     get (req, res, next) {
 
-      const lng = req.query.lng || 'en';
-      const title = i18n.t('cms.title', { lng });
+      const title = i18n.t('cms.title');
       const content = 'CMS <br /> <a href="/">Index</a>';
 
       res.render('cms.html', {

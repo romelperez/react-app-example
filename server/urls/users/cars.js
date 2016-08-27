@@ -4,8 +4,7 @@ export default {
   '/cars': {
     get (req, res, next) {
 
-      const lng = req.query.lng || 'en';
-      const title = i18n.t('cars.title', { lng });
+      const title = i18n.t('cars.title');
       const content = 'Cars <br /> <a href="/">Index</a>';
 
       res.render('users/cars.html', {

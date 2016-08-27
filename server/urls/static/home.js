@@ -5,8 +5,7 @@ export default {
   '/': {
     get (req, res, next) {
 
-      const lng = req.query.lng || 'en';
-      const title = i18n.t('index.title', { lng });
+      const title = i18n.t('index.title');
       const content = app();
 
       res.render('static/index.html', {

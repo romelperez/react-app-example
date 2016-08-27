@@ -5,10 +5,6 @@ export default {
   '/terms-and-conditions': {
     get (req, res, next) {
 
-      const lng = req.query.lng || 'en';
-
-      // TODO: Detect language from user locale too.
-
       // TODO: Connect with database.
 
       const subtitle = 'Terms and Conditions';
@@ -17,9 +13,8 @@ export default {
         <p>Have in mind this is just an example of how everything should be done.</p>
         <p>Don't get too high hopes with covering all the edge-cases this project can have, just be somehow free and open to new ideas.</p>
       `;
-      const title = i18n.t('app.terms-and-conditions.title', { lng });
-
-      const content = app({ lng, subtitle, article });
+      const title = i18n.t('terms-and-conditions.title');
+      const content = app({ subtitle, article });
 
       res.render('static/terms-and-conditions.html', {
         seo: { title },

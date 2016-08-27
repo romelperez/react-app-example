@@ -4,8 +4,7 @@ export default {
   '/login': {
     get (req, res, next) {
 
-      const lng = req.query.lng || 'en';
-      const title = i18n.t('login.title', { lng });
+      const title = i18n.t('login.title');
       const content = 'Login <br /> <a href="/">Index</a>';
 
       res.render('users/login.html', {

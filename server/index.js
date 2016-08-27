@@ -1,24 +1,23 @@
-import path from 'path';
 import express from 'express';
 import nunjucks from 'nunjucks';
+import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import ngrok from 'ngrok';
-import pkg from '../package.json';
-import router from './router';
+import settings from '../settings';
 import log from './log';
+import dbms from './dbms';
+import router from './router';
 
-const project = pkg.project;
 const dev = process.env.NODE_ENV !== 'production';
 const enableTunnel = !!process.env.ENABLE_TUNNEL;
-const port = process.env.PORT || project.port;
+const port = process.env.PORT || settings.port;
 const viewsPath = process.cwd() +'/server/views';
 const app = express();
 
-log.env();
+log.app.env();
 
-// Set global variables for views templates to use
 app.locals = {
-  def: project
+  def: settings
 };
 
 nunjucks.configure(viewsPath, {
@@ -26,46 +25,29 @@ nunjucks.configure(viewsPath, {
   express: app,
   watch: dev
 });
-app.use((req, res, next) => {
-  log.url(`${req.ip} ${req.method} ${req.url}`);
-  next();
-});
-
-// Accept HTTP requests body contents
+app.use(morgan('short'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Register all application routes.
-router(app);
+dbms(function () {
 
-app.use(express.static(process.cwd() +'/dist'));
-if (dev) {
-  app.use('/docs', express.static(process.cwd() +'/docs'));
-}
+  router(app);
 
-// HTTP 404
-app.use((req, res) => res.status(404).render('intern/404.html'));
+  app.listen(port, function (err) {
+    if (err) {
+      throw err;
+    }
 
-// HTTP 5XX
-app.use((err, req, res, next) => {
-  log.error(err.stack);
-  res.status(err.status || 500).render('intern/500.html', { content: err.stack });
-});
+    log.app.info(`Running at http://127.0.0.1:${port}.`);
 
-app.listen(port, function (err) {
-  if (err) {
-    throw err;
-  }
+    if (enableTunnel) {
+      ngrok.connect(port, (innerErr, url) => {
+        if (innerErr) {
+          return log.app.error(innerErr);
+        }
 
-  log.info(`Running at http://127.0.0.1:${port}`);
-
-  if (enableTunnel) {
-    ngrok.connect(port, (innerErr, url) => {
-      if (innerErr) {
-        return log.error(innerErr);
-      }
-
-      log.info(`Running through ngrok at: ${url}`);
-    });
-  }
+        log.app.info(`Running through ngrok at: ${url}.`);
+      });
+    }
+  });
 });
