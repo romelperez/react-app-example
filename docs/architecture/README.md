@@ -13,7 +13,7 @@ How we decide some project features based on people, time, money, and other inve
 - Accessibility
   - All public facing content should be SEO friendly
   - All public facing content should be crawlable at page load
-  - Available in languages: English (default) and Spanish
+  - Available in languages: English
 - Performance
   - Public pages should weight less than 3MB on initial load
   - Public pages should load first content in less than 2 seconds through _Regular 4G_ connection, applications can take longer
@@ -114,6 +114,7 @@ _Some rules from [Frontend Architecture for design systems](http://shop.oreilly.
 ### Platforms
 
 - [Node](http://nodejs.org) v4+
+- [MongoDB](http://mongodb.org)
 - Ever green browsers
 
 ### Languages
@@ -126,10 +127,10 @@ _Some rules from [Frontend Architecture for design systems](http://shop.oreilly.
 ### Tools
 
 - [Express](http://expressjs.com) - Server
+- [Mongoose](http://mongoosejs.com) - Database object modeling
 - [React](https://facebook.github.io/react/) - JS view library
 - [Redux](http://redux.js.org) - Predictable state container for JS apps
 - [Immutable](https://facebook.github.io/immutable-js/) - Immutable collections for JS
-- [Material UI](http://www.material-ui.com) - Frontend framework
 - [jQuery](http://jquery.com) - General JS library
 
 ### Tasks and automation
@@ -165,7 +166,7 @@ _Some rules from [Frontend Architecture for design systems](http://shop.oreilly.
 
 ### Project
 
-We store the general project configuration at `package.json` property `project`.
+We store the general project configuration at `settings.json`. The client applications settings is located at `src/js/settings.js`.
 
 Client code is located at `src` and server code is located at `server`. If there is code used universally, we place it in the `src` folder.
 
