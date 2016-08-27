@@ -11,7 +11,6 @@ const jsdoc =         require('gulp-jsdoc3');
 const pkg =           require('./package.json');
 const log =           require('./server/log');
 
-const project = pkg.project;
 const dev = process.env.NODE_ENV !== 'production';
 const sassFiles = [
   './src/scss/**/*.scss'

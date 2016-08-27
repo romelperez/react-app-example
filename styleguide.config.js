@@ -1,16 +1,17 @@
 const glob = require('glob');
+const pkg = require('./package');
 const webpackBase = require('./webpack.base.js');
 
 module.exports = {
 
   // Docs site title.
-  title: 'CarSeller',
+  title: pkg.name,
 
   // HTML template.
   template: './docs/styleguide/template.html',
 
-  // All files inside `src/components` with name `index.js`.
-  components: './src/components/**/index.js',
+  // All JS files inside `src/components`.
+  components: './src/js/components/**/*.js',
 
   // Folder to publish the docs.
   styleguideDir: './docs/styleguide',

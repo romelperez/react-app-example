@@ -1,7 +1,5 @@
 // Karma configuration
-const path = require('path');
 const webpackBase = require('./webpack.base.js');
-const pkg = require('./package.json');
 const log = require('./server/log');
 
 const isCI = !!process.env.TRAVIS;
