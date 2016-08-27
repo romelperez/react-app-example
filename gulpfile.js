@@ -17,7 +17,7 @@ const sassFiles = [
   './src/scss/**/*.scss'
 ];
 
-log.env();
+log.app.env();
 
 //
 // SASS

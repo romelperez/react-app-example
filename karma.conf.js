@@ -21,7 +21,7 @@ webpackConf.module.loaders.forEach(loader => {
   delete loader.include;
 });
 
-log.env();
+log.app.env();
 
 module.exports = function(config) {
   config.set({

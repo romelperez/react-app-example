@@ -14,7 +14,7 @@ const plugins = [
   })
 ];
 
-log.env();
+log.app.env();
 
 if (!dev) {
   plugins.push(
