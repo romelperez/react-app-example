@@ -1,6 +1,5 @@
 import i18next from 'i18next';
 import en from './resources/en';
-import es from './resources/es';
 
 /**
  * @module {Object} i18n
@@ -10,7 +9,7 @@ import es from './resources/es';
 i18next.init({
   lng: 'en',
   fallbackLng: 'en',
-  resources: { en, es }
+  resources: { en }
 });
 
 export default i18next;
