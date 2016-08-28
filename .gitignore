@@ -37,7 +37,7 @@ npm-debug.log
 ##
 
 ## LOCAL
-local.js
+server/local.js
 
 ## DOCS
 docs/styleguide/*

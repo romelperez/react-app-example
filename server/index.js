@@ -3,7 +3,7 @@ import nunjucks from 'nunjucks';
 import morgan from 'morgan';
 import bodyParser from 'body-parser';
 import ngrok from 'ngrok';
-import settings from '../settings';
+import settings from './settings';
 import log from './log';
 import dbms from './dbms';
 import router from './router';

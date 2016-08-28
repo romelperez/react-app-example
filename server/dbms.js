@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import log from './log';
-import settings from '../settings';
+import settings from './settings';
 
 mongoose.Promise = global.Promise;
 
