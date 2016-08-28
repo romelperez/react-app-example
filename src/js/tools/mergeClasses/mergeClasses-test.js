@@ -1,8 +1,7 @@
-import chai, { expect } from 'chai';
+import { expect } from 'chai';
 import mergeClasses from './index.js';
 
 describe('Tools', function () {
-
   describe('mergeClasses', function () {
 
     it('Should return empty string without parameters', function () {
