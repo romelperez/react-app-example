@@ -1,4 +1,19 @@
-import { translate } from 'react-i18next';
-import Content from './Content';
+import React, { PropTypes } from 'react';
+import mergeClasses from 'tools/mergeClasses';
 
-export default translate()(Content);
+/**
+ * Main content.
+ */
+const Content = function (props) {
+
+  const { className, children, other } = props;
+  const cls = mergeClasses('main-content', className);
+
+  return (
+    <section {...other} className={cls}>
+      {children}
+    </section>
+  );
+};
+
+export default Content;

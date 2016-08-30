@@ -6,21 +6,14 @@ chai.use(chaiEnzyme());
 
 import React from 'react';
 import i18n from 'i18n';
-import Container from './Container';
-
-const shallowContainer = function (props={}, children) {
-  props.t = i18n.t.bind(i18n);
-  return shallow(
-    <Container {...props}>{children}</Container>
-  );
-};
+import Container from './index';
 
 describe('Component', function () {
   describe('Main', function () {
     describe('Container', function () {
 
       it('Has proper class name', function () {
-        const actual = shallowContainer().hasClass('main-container');
+        const actual = shallow(<Container />).hasClass('main-container');
         const expected = true;
         expect(actual).to.equal(expected);
       });
