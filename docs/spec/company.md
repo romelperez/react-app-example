@@ -1,3 +1,5 @@
+[Back](./)
+
 # Company
 
 - If the user is not logged in:

@@ -1,3 +1,5 @@
+[Back](../)
+
 # Users Logout
 
 - Should not display content

@@ -1,3 +1,5 @@
+[Back](../)
+
 # CMS Information
 
 - Should display a list of all information items on server (list is static)
