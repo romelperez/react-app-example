@@ -11,7 +11,7 @@ module.exports = {
   template: './docs/styleguide/template.html',
 
   // All JS files inside `src/components`.
-  components: './src/js/components/**/*.js',
+  components: './src/js/components/**/index.js',
 
   // Folder to publish the docs.
   styleguideDir: './docs/styleguide',
@@ -21,7 +21,7 @@ module.exports = {
 
   // Webpack configuration, which extends the library's with our own.
   updateWebpackConfig (conf, env) {
-    conf.resolve.alias = Object.assign(conf.resolve.alias, webpackBase.resolve.alias);
+    conf.resolve.fallback = webpackBase.resolve.fallback;
     conf.module.loaders = conf.module.loaders.concat(webpackBase.module.loaders);
     return conf;
   }
