@@ -8,7 +8,7 @@ A web application written in universal JavaScript (ES2015), React, SASS, Node an
 
 - [Specification](./docs/spec/)
 - [Software architecture](./docs/architecture/)
-- [Graphical design](./docs/design/)
+- [User Interfaces](./docs/ui/)
 
 See architecture details to review how the project is designed and structured.
 
