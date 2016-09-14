@@ -1,13 +1,13 @@
 require('babel-polyfill');
 
-import $ from 'jquery';
-import injectTapEventPlugin from 'react-tap-event-plugin';
+window.$ = window.jQuery = require('jquery');
+
+require('vulcanval');
+require('vulcanval/src/js/jquery');
+require('tools/validators');
+
 import analytics from './analytics';
 import loader from './loader';
-
-window.$ = window.jQuery = $;
-
-injectTapEventPlugin();
 
 $(document).ready(function ($) {
   loader();
