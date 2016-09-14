@@ -1,12 +1,15 @@
 // The core module should be used to import all shared styles and components.
 
-@import 'foundation-extend';
+@import 'foundation-extend/foundation-extend';
+@import 'vulcanval-jquery';
 
 @import 'base/main';
 @import 'base/typography';
 @import 'base/forms';
 @import 'base/tables';
 @import 'base/media';
+
+@import '../components/general/card';
 
 @import '../components/main/container';
 @import '../components/main/header';
