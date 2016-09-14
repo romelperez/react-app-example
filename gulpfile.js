@@ -40,7 +40,8 @@ gulp.task('sass', function () {
     pipe(
       sass({
         includePaths: [
-          './node_modules/foundation-sites/scss'
+          './node_modules/foundation-sites/scss',
+          './node_modules/vulcanval/src/scss/jquery'
         ],
         outputStyle: dev ? 'nested' : 'compressed',
         sourceMap: dev,
