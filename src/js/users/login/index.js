@@ -1,1 +1,3 @@
-console.log('login init');
+import render from './render';
+
+render();

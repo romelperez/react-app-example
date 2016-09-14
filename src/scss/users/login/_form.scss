@@ -1,0 +1,12 @@
+.login-form {
+  margin: 1rem 0 1rem;
+  width: 100%;
+
+  button {
+    width: 100%;
+  }
+
+  @include breakpoint(medium) {
+    margin: 4rem 0 4rem;
+  }
+}
