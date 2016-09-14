@@ -16,6 +16,9 @@ export default {
 
     login: {
       title: 'Login',
+      email: 'Email',
+      password: 'Password',
+      enter: 'Login',
     },
 
     register: {
