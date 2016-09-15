@@ -2,12 +2,12 @@ const path = require('path');
 
 module.exports = {
   resolve: {
-    fallback: path.join(process.cwd(), '/src/js')
+    fallback: path.join(process.cwd(), '/src')
   },
   module: {
     loaders: [{
       test: /\.js$/,
-      include: path.join(process.cwd(), '/src/js'),
+      include: path.join(process.cwd(), '/src'),
       exclude: /(node_modules|bower_components|static_components)/,
       loader: 'babel',
       query: {
