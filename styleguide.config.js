@@ -11,7 +11,7 @@ module.exports = {
   template: './docs/styleguide/template.html',
 
   // All JS files inside `src/components`.
-  components: './src/js/components/**/index.js',
+  components: './src/components/**/index.js',
 
   // Folder to publish the docs.
   styleguideDir: './docs/styleguide',
