@@ -6,12 +6,22 @@ module.exports = {
   },
   module: {
     loaders: [{
-      test: /\.js$/,
-      include: path.join(process.cwd(), '/src'),
-      exclude: /(node_modules|bower_components|static_components)/,
       loader: 'babel',
+      test: /\.js$/,
+      include: [
+        path.join(process.cwd(), '/src')
+      ],
+      exclude: [
+        'node_modules',
+        'bower_components',
+        'static_components'
+      ],
       query: {
-        presets: ['react', 'es2015', 'stage-1']
+        presets: [
+          'react',
+          'es2015',
+          'stage-1'
+        ]
       }
     }]
   }
