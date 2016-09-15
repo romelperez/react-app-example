@@ -13,7 +13,13 @@ const log =           require('./server/log');
 
 const dev = process.env.NODE_ENV !== 'production';
 const sassFiles = [
-  './src/scss/**/*.scss'
+  './src/**/*.scss'
+];
+const sassOutput = './dist/css';
+const sassIncludePaths = [
+  './src',
+  './node_modules/foundation-sites/scss',
+  './node_modules/vulcanval/src/scss/jquery'
 ];
 
 log.app.env();
@@ -39,10 +45,7 @@ gulp.task('sass', function () {
     pipe(sourcemaps.init()).
     pipe(
       sass({
-        includePaths: [
-          './node_modules/foundation-sites/scss',
-          './node_modules/vulcanval/src/scss/jquery'
-        ],
+        includePaths: sassIncludePaths,
         outputStyle: dev ? 'nested' : 'compressed',
         sourceMap: dev,
         sourceComments: dev,
@@ -58,7 +61,7 @@ gulp.task('sass', function () {
       rename({ dirname: '' })
     ).
     pipe(
-      gulp.dest('./dist/css', { overwrite: true })
+      gulp.dest(sassOutput, { overwrite: true })
     ).
     pipe(
       gif(dev, livereload())
