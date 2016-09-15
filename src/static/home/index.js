@@ -1,3 +1,3 @@
 $(document).ready(function ($) {
-  console.log('Index static site.');
+  console.log('Home static site.');
 });

@@ -24,7 +24,7 @@ if (!dev) {
 module.exports = Object.assign({}, webpackBase, {
   entry: {
     'core':                         './src/core/index.js',
-    'static-index':                 './src/static/index/index.js',
+    'static-home':                  './src/static/home/index.js',
     'static-terms-and-conditions':  './src/static/terms-and-conditions/index.js',
     'users-cars':                   './src/users/cars/index.js',
     'users-login':                  './src/users/login/index.js',

@@ -5,7 +5,7 @@ export default {
       title: 'Car Seller'
     },
 
-    index: {
+    home: {
       title: 'Car Seller',
       slogan: 'We sell the best cars brands in the market',
     },

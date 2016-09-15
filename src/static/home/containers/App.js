@@ -8,7 +8,7 @@ import Footer from 'components/main/Footer';
 
 const App = function (props={}) {
 
-  const slogan = i18n.t('index.slogan');
+  const slogan = i18n.t('home.slogan');
   const login = i18n.t('login.title');
   const register = i18n.t('register.title');
   const optionsList = [
@@ -17,11 +17,11 @@ const App = function (props={}) {
   ];
 
   return (
-    <Container className='index'>
+    <Container className='home'>
       <Header>
         <Options list={optionsList} />
       </Header>
-      <Content className='index-content'>
+      <Content className='home-content'>
         <div className='row align-middle'>
           <div className='column small-12 medium-6'>
             <h2>{slogan}</h2>
