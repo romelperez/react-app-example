@@ -8,7 +8,7 @@ import validators   from 'tools/validators';
 import Card         from 'components/general/Card';
 import Callout      from 'components/general/Callout';
 
-const LoginForm = React.createClass({
+const RegisterForm = React.createClass({
 
   getInitialState () {
     return {
@@ -18,15 +18,17 @@ const LoginForm = React.createClass({
   },
 
   componentDidMount () {
-    $(this.form).vulcanval(validators.login);
+    $(this.form).vulcanval(validators.register);
   },
 
   render () {
 
-    const title =     i18n.t('login.title');
-    const button =    i18n.t('login.button');
-    const email =     i18n.t('login.fields.email');
-    const password =  i18n.t('login.fields.password');
+    const title =     i18n.t('register.title');
+    const button =    i18n.t('register.button');
+    const name =      i18n.t('register.fields.name');
+    const email =     i18n.t('register.fields.email');
+    const password =  i18n.t('register.fields.password');
+    const repassword =i18n.t('register.fields.repassword');
 
     let errorEl;
     if (this.state.error) {
@@ -45,7 +47,7 @@ const LoginForm = React.createClass({
     }
 
     return (
-      <Card className='login-form'>
+      <Card className='register-form'>
         <form ref={ref => this.form = ref} onSubmit={this.onSubmit}>
 
           <div className='row'>
@@ -57,23 +59,43 @@ const LoginForm = React.createClass({
           {/* ERROR MESSAGE */}
           {errorEl}
 
+          {/* NAME */}
+          <div className='row'>
+            <div className='column small-12'>
+              <label htmlFor='register-form__name'>{name}</label>
+              <input id='register-form__name' name='name' type='text'
+                placeholder={name} data-vv-display='#register-form__name-display' />
+              <div id='register-form__name-display' />
+            </div>
+          </div>
+
           {/* EMAIL */}
           <div className='row'>
             <div className='column small-12'>
-              <label htmlFor='login-form__email'>{email}</label>
-              <input id='login-form__email' name='email' type='email'
-                placeholder={email} data-vv-display='#login-form__email-display' />
-              <div id='login-form__email-display' />
+              <label htmlFor='register-form__email'>{email}</label>
+              <input id='register-form__email' name='email' type='email'
+                placeholder={email} data-vv-display='#register-form__email-display' />
+              <div id='register-form__email-display' />
             </div>
           </div>
 
           {/* PASSWORD */}
           <div className='row'>
             <div className='column small-12'>
-              <label htmlFor='login-form__password'>{password}</label>
-              <input id='login-form__password' name='password' type='password'
-                placeholder={password} data-vv-display='#login-form__password-display' />
-              <div id='login-form__password-display' />
+              <label htmlFor='register-form__password'>{password}</label>
+              <input id='register-form__password' name='password' type='password'
+                placeholder={password} data-vv-display='#register-form__password-display' />
+              <div id='register-form__password-display' />
+            </div>
+          </div>
+
+          {/* RE-PASSWORD */}
+          <div className='row'>
+            <div className='column small-12'>
+              <label htmlFor='register-form__repassword'>{repassword}</label>
+              <input id='register-form__repassword' name='repassword' type='password'
+                placeholder={repassword} data-vv-display='#register-form__repassword-display' />
+              <div id='register-form__repassword-display' />
             </div>
           </div>
 
@@ -104,7 +126,7 @@ const LoginForm = React.createClass({
   },
 
   onSuccess (e) {
-    window.location.href = consts.ROUTE.CARS;
+    window.location.href = consts.ROUTE.LOGIN;
   },
 
   exec (e) {
@@ -112,7 +134,7 @@ const LoginForm = React.createClass({
     const map = $(this.form).vulcanval('getMap');
 
     data.
-      login(map).
+      register(map).
       then(response => {
         this.onSuccess(e);
       }).
@@ -125,4 +147,4 @@ const LoginForm = React.createClass({
   },
 });
 
-export default LoginForm;
+export default RegisterForm;

@@ -3,8 +3,8 @@
 .main-footer {
   padding: 1rem 0;
   background-color: $primary-color;
-  transition: background-color 300ms;
   color: #fff;
+  animation: app-medium-appear-inverse 250ms ease-out;
 
   h1 {
     margin: 0 0 1rem;
@@ -36,5 +36,6 @@
   &:hover,
   &:focus {
     background-color: darken($primary-color, 5);
+    transition: background-color 250ms;
   }
 }

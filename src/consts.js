@@ -1,5 +1,6 @@
-const constants = {
-  ROUTES: {
+const consts = {
+
+  ROUTE: {
     HOME: '/',
     LOGIN: '/login',
     REGISTER: '/register',
@@ -7,4 +8,4 @@ const constants = {
   },
 };
 
-export default constants;
+export default consts;

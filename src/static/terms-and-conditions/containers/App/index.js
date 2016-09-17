@@ -1,9 +1,10 @@
 import React from 'react';
-import i18n from 'i18n';
-import Container from 'components/main/Container';
-import Header from 'components/main/Header';
-import Content from 'components/main/Content';
-import Footer from 'components/main/Footer';
+
+import i18n       from 'i18n';
+import Container  from 'components/main/Container';
+import Header     from 'components/main/Header';
+import Content    from 'components/main/Content';
+import Footer     from 'components/main/Footer';
 
 const App = function (props={}) {
 

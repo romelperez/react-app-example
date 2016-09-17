@@ -1,1 +1,3 @@
-console.log('register init');
+import render from './render';
+
+render();

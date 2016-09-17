@@ -1,0 +1,91 @@
+//
+// SMALL
+//
+
+@keyframes app-small-disappear {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-1rem);
+  }
+}
+@keyframes app-small-disappear-inverse {
+  to {
+    opacity: 0;
+    transform: translateY(1rem);
+  }
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes app-small-disappear-x {
+  to {
+    opacity: 0;
+    transform: translateX(-1rem);
+  }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes app-small-disappear-x-inverse {
+  to {
+    opacity: 0;
+    transform: translateX(1rem);
+  }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+//
+// MEDIUM
+//
+
+@keyframes app-medium-disappear {
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateY(-3rem);
+  }
+}
+@keyframes app-medium-disappear-inverse {
+  to {
+    opacity: 0;
+    transform: translateY(3rem);
+  }
+  from {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes app-medium-disappear-x {
+  to {
+    opacity: 0;
+    transform: translateX(-3rem);
+  }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+@keyframes app-medium-disappear-x-inverse {
+  to {
+    opacity: 0;
+    transform: translateX(3rem);
+  }
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

@@ -1,5 +1,19 @@
 import React, { PropTypes } from 'react';
+
+import consts       from 'consts';
+import i18n         from 'i18n';
 import mergeClasses from 'tools/mergeClasses';
+
+const preset = {
+  login: {
+    href: consts.ROUTE.LOGIN,
+    children: i18n.t('login.title'),
+  },
+  register: {
+    href: consts.ROUTE.REGISTER,
+    children: i18n.t('register.title'),
+  },
+};
 
 /**
  * Main options for header. Don't accept children.
@@ -11,8 +25,17 @@ const Options = function (props) {
 
   const processedList = list.
     map((itemProps, key) => {
-      const { children='Link' } = itemProps;
+
+      if (typeof itemProps === 'string') {
+        if (!preset[itemProps]) {
+          throw new Error(`Invalid list option "${itemProps}"`);
+        }
+        itemProps = Object.assign({}, preset[itemProps]);
+      }
+
+      const children = itemProps.children || 'Link';
       delete itemProps.children;
+
       return (
         <a key={key} {...itemProps}>{children}</a>
       );

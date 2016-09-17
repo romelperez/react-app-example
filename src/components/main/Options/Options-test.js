@@ -5,6 +5,7 @@ import chaiEnzyme from 'chai-enzyme';
 chai.use(chaiEnzyme());
 
 import React, { PropTypes } from 'react';
+import consts from 'consts';
 import i18n from 'i18n';
 import Options from './index';
 
@@ -30,6 +31,18 @@ describe('Component', function () {
             <a href='/xyz' target='_blank'>Abcd</a>
             <a href='/abc'>Efgh</a>
             <a href='/mno' target='_blank'>Abcd Efgh</a>
+          </span>
+        );
+        expect(el).to.contain(expected);
+      });
+
+      it('Process a list of preset items', function () {
+        const list = ['register', 'login'];
+        const el = shallow(<Options list={list} />);
+        const expected = (
+          <span>
+            <a href={consts.ROUTE.REGISTER}>{i18n.t('register.title')}</a>
+            <a href={consts.ROUTE.LOGIN}>{i18n.t('login.title')}</a>
           </span>
         );
         expect(el).to.contain(expected);

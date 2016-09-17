@@ -16,13 +16,22 @@ export default {
 
     login: {
       title: 'Login',
-      email: 'Email',
-      password: 'Password',
-      enter: 'Login',
+      button: 'Login',
+      fields: {
+        email: 'Email',
+        password: 'Password',
+      },
     },
 
     register: {
       title: 'Register',
+      button: 'Register',
+      fields: {
+        name: 'Name',
+        email: 'Email',
+        password: 'Password',
+        repassword: 'Repeat Password',
+      },
     },
 
     cars: {

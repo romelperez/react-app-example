@@ -6,21 +6,21 @@ import Header     from 'components/main/Header';
 import Options    from 'components/main/Options';
 import Content    from 'components/main/Content';
 import Footer     from 'components/main/Footer';
-import LoginForm  from '../LoginForm';
 
 const App = function (props={}) {
 
-  const optionsList = ['register'];
+  const slogan =      i18n.t('home.slogan');
+  const optionsList = ['register', 'login'];
 
   return (
-    <Container className='login'>
+    <Container className='home'>
       <Header>
         <Options list={optionsList} />
       </Header>
-      <Content>
-        <div className='row align-center'>
-          <div className='column small-10 medium-6 large-4'>
-            <LoginForm />
+      <Content className='home-content'>
+        <div className='row align-middle'>
+          <div className='column small-12 medium-6'>
+            <h2>{slogan}</h2>
           </div>
         </div>
       </Content>
