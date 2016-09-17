@@ -5,11 +5,9 @@ export default {
     get (req, res, next) {
 
       const title = i18n.t('login.title');
-      const content = 'Login <br /> <a href="/">Index</a>';
 
       res.render('users/login.html', {
-        seo: { title },
-        content
+        seo: { title }
       });
     }
   }

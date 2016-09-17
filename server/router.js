@@ -22,9 +22,11 @@ const load = function (app, src) {
   const isFile = itemPath => !isFolder(itemPath);
 
   const defineRouters = (filePath, definition) => {
+
     if (!definition) {
       return log.router.warn(`File "${filePath}" does not have proper URL definition`);
     }
+
     Object.keys(definition).forEach(function (url) {
       const route = app.route(url);
       const verbs = definition[url];
@@ -36,8 +38,19 @@ const load = function (app, src) {
   };
 
   const processFile = filePath => {
-    const definition = require(filePath);
-    defineRouters(filePath, definition ? definition.default : definition);
+
+    log.router.debug(`Processing file "${filePath}"...`);
+
+    let definition;
+    try {
+      definition = require(filePath);
+    } catch (err) {
+      log.router.error(err.stack);
+    }
+
+    if (definition) {
+      defineRouters(filePath, definition ? definition.default : definition);
+    }
   };
 
   const items = getItems(src);
