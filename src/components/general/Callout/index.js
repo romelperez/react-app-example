@@ -6,23 +6,27 @@ import mergeClasses from 'tools/mergeClasses';
  */
 const Callout = function (props) {
 
-  // TODO:
-
-  const { type, className, children, ...other } = props;
+  const { type, onClose, className, children, ...other } = props;
   const cls = mergeClasses('general-callout callout', type, className);
 
   return (
-    <div className={cls} data-closable>
+    <div {...other} className={cls} data-closable>
       {children}
-      <button className='close-button' ariaLabel='Dismiss alert' type='button' data-close>
-        <span ariaHidden='true' dangerouslySetInnerHTML={{__html: '&times;'}} />
+      <button className='close-button' aria-label='Dismiss alert' type='button'
+        data-close onClick={onClose}>
+        <span aria-hidden='true' dangerouslySetInnerHTML={{__html: '&times;'}} />
       </button>
     </div>
   );
 };
 
 Callout.defaultProps = {
-  type: 'alert'
+  type: 'alert',
+};
+
+Callout.propTypes = {
+  type: PropTypes.oneOf(['primary', 'secondary', 'alert', 'success', 'warning']),
+  onClose: PropTypes.func,
 };
 
 export default Callout;

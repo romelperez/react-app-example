@@ -1,9 +1,8 @@
-require('babel-polyfill');
-
 window.$ = window.jQuery = require('jquery');
 
+require('babel-polyfill');
 require('vulcanval');
-require('vulcanval/src/js/jquery');
+require('vulcanval/bundle/js/jquery/intern');
 require('tools/validators');
 
 import analytics from './analytics';

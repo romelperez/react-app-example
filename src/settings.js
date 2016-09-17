@@ -15,7 +15,7 @@ const settings = {
   }, {
     type: 'CSS',
     path: '//cdn.materialdesignicons.com/1.6.50/css/materialdesignicons.min.css'
-  }]
+  }],
 };
 
 settings.api = S(settings.api).chompRight('/').s;
