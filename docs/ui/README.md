@@ -2,8 +2,6 @@
 
 Partial example designs of the project.
 
-*__Note__: I'm not a designer so these are just examples. Implementation will be better ;)*
-
 ## Company
 
 ### Company
