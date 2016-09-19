@@ -18,8 +18,9 @@
     "build-css:watch": "./node_modules/.bin/gulp",
     "build-js": "./node_modules/.bin/webpack",
     "build-js:watch": "./node_modules/.bin/webpack -w",
-    "test": "npm run test-src && npm run test-integration",
+    "test": "npm run test-src && npm run test-e2e && npm run test-integration",
     "test-src": "NODE_PATH=./src/ NODE_ENV=test ./node_modules/.bin/karma start karma.conf.js",
+    "test-e2e": "echo \"TODO: End to end testing\"",
     "test-integration": "NODE_PATH=./src/ NODE_ENV=test ./node_modules/.bin/mocha './test/integration/setup.js' './test/integration/**/*-test.js'",
     "docs": "npm run docs-styleguide && npm run docs-js && npm run docs-api",
     "docs-styleguide": "NODE_PATH=./src/ ./node_modules/.bin/styleguidist build",
@@ -38,10 +39,12 @@
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-1": "^6.13.0",
     "babel-register": "^6.11.6",
+    "bcrypt": "^0.8.7",
     "body-parser": "^1.15.1",
     "chai": "^3.5.0",
     "chai-enzyme": "^0.5.0",
     "chai-http": "^3.0.0",
+    "cookie-session": "^2.0.0-alpha.1",
     "cssnano": "^3.7.3",
     "enzyme": "^2.4.1",
     "express": "^4.14.0",
@@ -81,7 +84,7 @@
     "require-dir": "^0.3.0",
     "string": "^3.3.1",
     "validator": "^5.7.0",
-    "vulcanval": "^2.0.4",
+    "vulcanval": "^3.0.3",
     "webpack": "^1.13.1"
   }
 }
