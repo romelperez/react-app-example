@@ -3,9 +3,9 @@
 # Data User
 
 - API
-  - Number id
+  - String _id
   - String name
   - String email
-  - String password
+  - String hash
   - Boolean active
-  - [Relation role](./user-role.md)
+  - Boolean admin

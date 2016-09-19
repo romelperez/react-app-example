@@ -3,7 +3,7 @@
 # Data Purchase
 
 - API
-  - Number id
+  - String _id
   - Datetime datetime
   - Number price
   - [Related user](./user.md)

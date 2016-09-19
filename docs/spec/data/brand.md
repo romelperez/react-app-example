@@ -3,7 +3,7 @@
 # Data Brand
 
 - API
-  - Number id
+  - String _id
   - String name
   - String description
   - String picture
