@@ -9,6 +9,7 @@ const log = {};
 log.app = new Log('App');
 log.db = new Log('Database');
 log.router = new Log('Router');
+log.middleware = new Log('Middleware');
 
 log.app.env = () => log.app.info(`Running on "${NODE_ENV}" mode.`);
 

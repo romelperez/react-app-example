@@ -1,12 +1,12 @@
 import mongoose from 'mongoose';
-import log from './log';
-import settings from './settings';
+import log      from './log';
+import config   from './config';
 
 mongoose.Promise = global.Promise;
 
 const dbms = function (callback=function(){}) {
 
-  const { user, pwd, server, port, db } = settings.mongodb;
+  const { user, pwd, server, port, db } = config.mongodb;
 
   log.db.debug(`Connecting with database "${db}"...`);
 

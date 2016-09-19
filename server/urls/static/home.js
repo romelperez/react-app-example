@@ -1,5 +1,6 @@
-import i18n from 'i18n';
-import app from 'static/home/server';
+import i18n   from 'i18n';
+import app    from 'static/home/server';
+import consts from 'consts';
 
 export default {
   '/': {
