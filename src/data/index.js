@@ -5,7 +5,7 @@ import settings from 'settings';
 const login = function (data) {
   return axios({
     method: 'post',
-    url: `${settings.api}/api/login`,
+    url: `${settings.api}/api/users/login`,
     data
   });
 };
@@ -13,7 +13,7 @@ const login = function (data) {
 const register = function (data) {
   return axios({
     method: 'post',
-    url: `${settings.api}/api/register`,
+    url: `${settings.api}/api/users/register`,
     data
   });
 };

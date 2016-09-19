@@ -4,7 +4,7 @@ const consts = {
     HOME: '/',
     LOGIN: '/login',
     REGISTER: '/register',
-    CARS: '/cars',
+    APP: '/cars',
   },
 };
 

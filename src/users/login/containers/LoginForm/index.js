@@ -104,7 +104,7 @@ const LoginForm = React.createClass({
   },
 
   onSuccess (e) {
-    window.location.href = consts.ROUTE.CARS;
+    window.location.href = consts.ROUTE.APP;
   },
 
   exec (e) {
