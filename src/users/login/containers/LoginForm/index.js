@@ -104,7 +104,20 @@ const LoginForm = React.createClass({
   },
 
   onSuccess (e) {
-    window.location.href = consts.ROUTE.APP;
+
+    const search = window.location.search.
+      replace('?', '').
+      split('&').
+      filter(i => !!i).
+      map(i => {
+        const key =   i.split('=')[0];
+        const value = i.split('=')[1];
+        return { key, value };
+      });
+
+    const redirect = search.find(item => item.key === 'redirect');
+
+    window.location.href = redirect ? redirect.value : consts.ROUTE.APP;
   },
 
   exec (e) {
