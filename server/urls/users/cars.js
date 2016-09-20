@@ -5,11 +5,9 @@ export default {
     get (req, res, next) {
 
       const title = i18n.t('cars.title');
-      const content = 'Cars <br /> <a href="/">Index</a>';
 
       res.render('users/cars.html', {
-        seo: { title },
-        content
+        seo: { title }
       });
     }
   }
