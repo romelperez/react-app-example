@@ -18,7 +18,15 @@ const register = function (data) {
   });
 };
 
+const user = function () {
+  return axios({
+    method: 'get',
+    url: `${settings.api}/api/users/current`,
+  });
+};
+
 export default {
   login,
-  register
+  register,
+  user,
 };

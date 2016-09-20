@@ -37,5 +37,13 @@ export default {
     cars: {
       title: 'Cars'
     },
+
+    logout: {
+      title: 'Log out',
+    },
+
+    cms: {
+      title: 'CMS',
+    },
   }
 };

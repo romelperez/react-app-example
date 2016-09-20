@@ -5,6 +5,8 @@ const consts = {
     LOGIN: '/login',
     REGISTER: '/register',
     APP: '/cars',
+    LOGOUT: '/logout',
+    CMS: '/cms',
   },
 };
 
