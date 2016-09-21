@@ -1,5 +1,5 @@
 import store from '../store';
 
 export default function () {
-  return store.getState().get('user').toJS();
+  return store.getState().get('intern').toJS();
 };

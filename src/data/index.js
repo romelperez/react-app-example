@@ -18,6 +18,13 @@ const register = function (data) {
   });
 };
 
+const brands = function () {
+  return axios({
+    method: 'get',
+    url: `${settings.api}/api/brands`,
+  });
+};
+
 const user = function () {
   return axios({
     method: 'get',
@@ -28,5 +35,6 @@ const user = function () {
 export default {
   login,
   register,
+  brands,
   user,
 };

@@ -2,13 +2,13 @@ import React, { PropTypes } from 'react';
 import { Router, Route, Redirect, hashHistory } from 'react-router';
 
 import consts     from 'consts';
-import appConsts  from '../../app-consts';
 import i18n       from 'i18n';
 import Container  from 'components/main/Container';
 import Header     from 'components/main/Header';
 import Options    from 'components/main/Options';
 import Content    from 'components/main/Content';
 import Footer     from 'components/main/Footer';
+import Loading    from 'components/main/Loading';
 import selectors  from '../../selectors';
 import Brands     from '../Brands';
 import Brand      from '../Brand';
@@ -19,6 +19,7 @@ const App = React.createClass({
 
   render () {
 
+    const { started } = selectors.intern();
     const options = this.getOptions();
 
     return (
@@ -27,13 +28,17 @@ const App = React.createClass({
           <Options list={options} />
         </Header>
         <Content>
-          <Router history={hashHistory}>
-            <Route path='/' component={Brands} />
-            <Route path='/brand/:brandId' component={Brand} />
-            <Route path='/car/:carId' component={Car} />
-            <Route path='/user' component={User} />
-            <Redirect from='*' to='/' />
-          </Router>
+          {started ? (
+            <Router history={hashHistory}>
+              <Route path='/' component={Brands} />
+              <Route path='/brand/:brandId' component={Brand} />
+              <Route path='/car/:carId' component={Car} />
+              <Route path='/user' component={User} />
+              <Redirect from='*' to='/' />
+            </Router>
+          ) : (
+            <Loading />
+          )}
         </Content>
         <Footer noTermsAndConditions={true} />
       </Container>
@@ -42,7 +47,7 @@ const App = React.createClass({
 
   getOptions () {
 
-    const user =    selectors(appConsts.SELECTOR.USER);
+    const user =    selectors.user();
     const cms =     i18n.t('cms.title');
     const logout =  i18n.t('logout.title');
     const options = [];

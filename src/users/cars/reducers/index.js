@@ -3,6 +3,7 @@ import getDefault   from './get-default';
 import buy          from './buy';
 import start        from './start';
 import started      from './started';
+import brands       from './brands';
 
 export default function (state, action) {
 
@@ -20,6 +21,9 @@ export default function (state, action) {
 
     case appConsts.ACTION.BUY:
       return buy(state, action);
+
+    case appConsts.ACTION.BRANDS_UPDATE:
+      return brands.update(state, action);
 
     default:
       return state;

@@ -9,5 +9,5 @@ render();
 
 // DEBUG:
 setTimeout(function () {
-  actions(appConsts.ACTION.START);
+  actions.start();
 }, 1500);

@@ -1,5 +1,5 @@
 import store from '../store';
 
-export default function (info) {
-  return store.get('brands').toJS();
+export default function () {
+  return store.getState().get('brands').toJS();
 };
