@@ -12,6 +12,8 @@ A web application written in universal JavaScript (ES2015), React, SASS, Node an
 
 See architecture details to review how the project is designed and structured.
 
+_Brands and logos used in this project belong to their respective owners._
+
 ## License
 
 [MIT](./LICENSE)
