@@ -1,14 +1,14 @@
-import Car from '../../models/Car';
+import Brand from '../../models/Brand';
 
 export default {
 
-  '/api/cars': {
+  '/api/brands': {
     get (req, res, next) {
-      Car.
+      Brand.
         find({}).
         exec().
-        then(function (cars) {
-          res.json(cars);
+        then(function (brands) {
+          res.json(brands);
         }).
         catch(function (err) {
           return res.status(500).json({ message: String(err) });
