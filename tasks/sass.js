@@ -1,13 +1,13 @@
-const autoprefixer =  require('autoprefixer');
-const cssnano =       require('cssnano');
-const gulp =          require('gulp');
-const sass =          require('gulp-sass');
-const rename =        require('gulp-rename');
-const gif =           require('gulp-if');
-const livereload =    require('gulp-livereload');
-const sourcemaps =    require('gulp-sourcemaps');
-const postcss =       require('gulp-postcss');
-const conf =          require('./conf');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const rename = require('gulp-rename');
+const gif = require('gulp-if');
+const livereload = require('gulp-livereload');
+const sourcemaps = require('gulp-sourcemaps');
+const postcss = require('gulp-postcss');
+const conf = require('./conf');
 
 const dev = process.env.NODE_ENV !== 'production';
 
@@ -24,11 +24,11 @@ if (!dev) {
 
 gulp.task('sass', function () {
   return gulp.
-    src(conf.sassFiles).
+    src(conf.sass.files).
     pipe(sourcemaps.init()).
     pipe(
       sass({
-        includePaths: conf.sassIncludePaths,
+        includePaths: conf.sass.includePaths,
         outputStyle: dev ? 'nested' : 'compressed',
         sourceMap: dev,
         sourceComments: dev,
@@ -44,7 +44,7 @@ gulp.task('sass', function () {
       rename({ dirname: '' })
     ).
     pipe(
-      gulp.dest(conf.sassOutput, { overwrite: true })
+      gulp.dest(conf.sass.output, { overwrite: true })
     ).
     pipe(
       gif(dev, livereload())
