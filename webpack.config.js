@@ -1,6 +1,8 @@
 const webpack = require('webpack');
 const webpackBase = require('./webpack.base.js');
-const log = require('./server/log');
+const log = require(process.cwd() + '/src/server/log');
+
+log.app.env();
 
 const dev = process.env.NODE_ENV !== 'production';
 const plugins = [
@@ -10,8 +12,6 @@ const plugins = [
     )
   })
 ];
-
-log.app.env();
 
 if (!dev) {
   plugins.push(
@@ -23,16 +23,16 @@ if (!dev) {
 
 module.exports = Object.assign({}, webpackBase, {
   entry: {
-    'core':                         './src/core/index.js',
-    'static-home':                  './src/static/home/index.js',
-    'static-terms-and-conditions':  './src/static/terms-and-conditions/index.js',
-    'users-cars':                   './src/users/cars/index.js',
-    'users-login':                  './src/users/login/index.js',
-    'users-register':               './src/users/register/index.js',
-    'cms':                          './src/cms/index.js',
+    'core':                         './src/client/core/index.js',
+    'static-home':                  './src/client/static/home/index.js',
+    'static-terms-and-conditions':  './src/client/static/terms-and-conditions/index.js',
+    'users-cars':                   './src/client/users/cars/index.js',
+    'users-login':                  './src/client/users/login/index.js',
+    'users-register':               './src/client/users/register/index.js',
+    'cms':                          './src/client/cms/index.js',
   },
   output: {
-    path: './dist/js/',
+    path: './public/js/',
     filename: '[name].js'
   },
   devtool: dev ? 'inline-source-map' : undefined,

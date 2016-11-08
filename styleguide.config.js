@@ -1,4 +1,3 @@
-const glob = require('glob');
 const pkg = require('./package');
 const webpackBase = require('./webpack.base.js');
 
@@ -11,7 +10,7 @@ module.exports = {
   template: './docs/styleguide/template.html',
 
   // All JS files inside `src/components`.
-  components: './src/components/**/index.js',
+  components: './src/shared/components/**/index.js',
 
   // Folder to publish the docs.
   styleguideDir: './docs/styleguide',

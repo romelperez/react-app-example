@@ -1,8 +1,10 @@
 // Karma configuration
 const webpackBase = require('./webpack.base.js');
-const log = require('./server/log');
+const log = require(process.cwd() + '/src/server/log');
 
-const isCI = !!process.env.TRAVIS;
+log.app.env();
+
+const isCI = process.env.NODE_CI || process.env.TRAVIS;
 const webpackConf = Object.assign({}, webpackBase, {
   devtool: 'inline-source-map',
   externals: {
@@ -19,9 +21,7 @@ webpackConf.module.loaders.forEach(loader => {
   delete loader.include;
 });
 
-log.app.env();
-
-module.exports = function(config) {
+module.exports = function (config) {
   config.set({
 
     // base path that will be used to resolve all patterns (eg. files, exclude)
@@ -35,13 +35,14 @@ module.exports = function(config) {
 
     // list of files / patterns to load in the browser
     files: [
-      'dist/js/core.js',
-      'src/**/*-test.js'
+      'public/js/core.js',
+      'src/client/**/*.test.js'
     ],
 
 
     // list of files to exclude
     exclude: [
+      'src/server'
     ],
 
 
@@ -68,7 +69,7 @@ module.exports = function(config) {
 
     // level of logging
     // possible values: config.LOG_DISABLE || config.LOG_ERROR || config.LOG_WARN || config.LOG_INFO || config.LOG_DEBUG
-    logLevel: config.LOG_DEBUG,
+    logLevel: config.LOG_INFO,
 
 
     // enable / disable watching file and executing tests whenever any file changes
@@ -84,12 +85,14 @@ module.exports = function(config) {
     // if true, Karma captures browsers, runs the tests and exits
     singleRun: isCI,
 
+
     // Concurrency level
     // how many browser should be started simultaneous
     concurrency: Infinity,
 
-    webpack: webpackConf,
 
+    // Webpack
+    webpack: webpackConf,
     webpackServer: {
       noInfo: true
     }

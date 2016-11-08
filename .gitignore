@@ -1,3 +1,5 @@
+# gitignore
+
 ##
 ## BASE
 ##
@@ -27,6 +29,8 @@ nbproject
 .npm
 .node_history
 .node_repl_history
+.vagrant
+.eslintcache
 
 Thumbs.db
 dump.rdb
@@ -36,19 +40,25 @@ npm-debug.log
 ## PROJECT
 ##
 
-## LOCAL
-server/local.js
+### LOCAL
+src/server/settings/local.js
+src/client/settings/local.js
+tasks/local.js
 
-## DOCS
+### BUNDLE
+bundle/*
+!bundle/.gitkeep
+
+### PUBLIC
+public/css/*
+!public/css/.gitkeep
+public/js/*
+!public/js/.gitkeep
+
+### DOCS
 docs/styleguide/*
 !docs/styleguide/template.html
 docs/api/*
 !docs/api/.gitkeep
 docs/js/*
 !docs/js/.gitkeep
-
-## DIST
-dist/css/*
-!dist/css/.gitkeep
-dist/js/*
-!dist/js/.gitkeep
