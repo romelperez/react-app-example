@@ -2,6 +2,8 @@
 
 [![prhone](https://img.shields.io/badge/prhone-project-00bbbb.svg)](http://romelperez.com)
 
+> This is a playground, not a working project.
+
 Platform to buy cars.
 
 A web application written in universal JavaScript (ES2015), React, SASS, Node and MongoDB.
