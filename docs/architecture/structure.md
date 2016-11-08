@@ -64,10 +64,10 @@ File structure:
     - `[APP]/`
       - `containers/` - React container components
       - *`data/`*
+      - *`store/`*
       - *`actions/`*
       - *`reducers/`*
-      - *`stores/`*
-      - *`routers.js`*
+      - *`selectors/`*
       - *`constants.js`*
       - *`server.js` - Application server entry point*
       - `index.js` - Application client entry point
@@ -90,8 +90,8 @@ File structure:
   - *`video/`*
 - `test/` - Testing setups and suites
   - `integration/` - Data client-server integration suites
-  - `[TYPE]/`
-    - `setup.js` - Optional testing environment setup
+  - *`[TYPE]/`*
+    - *`setup.js` - Optional testing environment setup*
 
 _Optional folders in cursive._
 
