@@ -1,0 +1,21 @@
+@import 'shared/settings';
+
+.main-options {
+  height: 100%;
+  text-align: left;
+
+  & > .row {
+    height: 100%;
+  }
+  a + a {
+    margin-left: 1rem;
+  }
+
+  @include breakpoint(medium) {
+    text-align: right;
+
+    a {
+      font-size: 1.25rem;
+    }
+  }
+}

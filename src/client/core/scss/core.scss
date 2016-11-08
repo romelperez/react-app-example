@@ -1,0 +1,23 @@
+// The core module should be used to import all shared styles and components.
+
+@import 'foundation-extend/foundation-extend';
+@import 'vulcanval-extend/vulcanval-extend';
+
+@import 'anim/appear';
+@import 'anim/disappear';
+
+@import 'base/main';
+@import 'base/typography';
+@import 'base/forms';
+@import 'base/tables';
+@import 'base/media';
+
+@import 'shared/components/general/Card/index';
+@import 'shared/components/general/Callout/index';
+
+@import 'shared/components/main/Container/index';
+@import 'shared/components/main/Header/index';
+@import 'shared/components/main/Options/index';
+@import 'shared/components/main/Content/index';
+@import 'shared/components/main/Footer/index';
+@import 'shared/components/main/Loading/index';
